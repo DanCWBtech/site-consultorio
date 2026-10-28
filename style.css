@@ -1,0 +1,38 @@
+:root{--ink:#1f2a33;--petrol:#3d4d59;--deep:#2b3943;--muted:#5e6a74;--ground:#f2f3f4;--card:#fff;--border:#dde1e5;--tint:#e3e8ec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--ground);line-height:1.6}
+a{color:var(--petrol)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+header img{height:40px;width:auto;display:block}
+nav{display:flex;gap:20px;font-weight:600;font-size:14px}
+nav a{text-decoration:none;color:var(--petrol)}
+.hero{background:var(--deep);color:#fff;padding:72px 0 64px}
+.hero h1{font-size:clamp(28px,5vw,42px);line-height:1.2;margin:0 0 14px;max-width:720px}
+.hero p{color:#d7dee3;font-size:17px;max-width:620px;margin:0 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
+.btn-light{background:#fff;color:var(--deep)}
+.btn-outline{border:1px solid #8fa0ad;color:#fff;margin-left:10px}
+section{padding:56px 0}
+h2{font-size:26px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.app{background:var(--tint)}
+.app ul{margin:0;padding-left:20px}
+.contact dl{margin:0;display:grid;gap:14px}
+.contact dt{font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--petrol)}
+.contact dd{margin:2px 0 0}
+footer{background:var(--deep);color:#c9d3da;font-size:14px;padding:28px 0}
+footer a{color:#fff}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.doc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:clamp(20px,4vw,40px);margin:40px auto}
+.doc h1{font-size:28px;margin-top:0}
+.doc h2{font-size:19px;margin:28px 0 6px}
+.doc p,.doc li{font-size:15px}
+.muted{color:var(--muted)}
+@media (max-width:640px){nav{display:none}.btn-outline{margin:10px 0 0}.hero .btn{width:100%}}
