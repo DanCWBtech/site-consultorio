@@ -235,7 +235,7 @@ def gerar_area(a):
 
 def gerar_home():
     destaques = "".join(
-        f'<a class="card destaque link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s]["resumo"])}</p><span class="mais">Saiba mais</span></a>'
+        f'<a class="card destaque link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s]["resumo"])}</p><span class="mais">Saiba mais sobre {esc(TODAS[s]["menu"].lower() if s != "dtm-atm-dor-orofacial" else "DTM, ATM e dor orofacial")}</span></a>'
         for s in DESTAQUES
     )
     outras = "".join(
