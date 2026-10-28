@@ -6,8 +6,11 @@ NOME = "Dr. Daniel Bonato Negrelle"
 NOME_CURTO = "Dr. Daniel Negrelle"
 AREA = "Cirurgia e Traumatologia Bucomaxilofacial"
 CRO = "CRO-PR 16620"
+ESPECIALISTA = f"Especialista em {AREA}"
+HOSPITAL = "Hospital São Lucas"
 ENDERECO = {
     "rua": "Av. João Gualberto, 1946",
+    "local": "Hospital São Lucas",
     "bairro": "Juvevê",
     "cidade": "Curitiba",
     "uf": "PR",

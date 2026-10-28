@@ -194,7 +194,7 @@ AREAS = [
 <p>Além dos sisos, a cirurgia oral inclui a remoção de outros dentes impactados e extrações de maior complexidade. Lesões que exigem investigação são tratadas em <a href="/patologias-dos-maxilares/">Patologias dos maxilares</a>.</p>
 """),
             ("Consultório, sedação ou ambiente hospitalar", """
-<p>A escolha do local e da forma de anestesia é individualizada. Ela considera o número e a posição dos dentes, a duração estimada da cirurgia, as condições de saúde e o grau de ansiedade de cada paciente. Quando indicado, a cirurgia pode ser realizada com sedação, para maior conforto, ou em ambiente hospitalar, com estrutura e suporte apropriados. Saiba mais em <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>.</p>
+<p>A escolha do local e da forma de anestesia é individualizada. Ela considera o número e a posição dos dentes, a duração estimada da cirurgia, as condições de saúde e o grau de ansiedade de cada paciente. Muitos casos são resolvidos com anestesia local. Quando indicado, a cirurgia é feita com sedação endovenosa, conduzida por médico anestesiologista em ambiente hospitalar, no Hospital São Lucas, onde fica o consultório. Saiba mais em <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>.</p>
 """),
             ("Recuperação", """
 <p>No pós-operatório, inchaço e desconforto nos primeiros dias são esperados e controlados com medicação e orientações de alimentação, higiene e repouso. As consultas de revisão acompanham a cicatrização.</p>
@@ -204,7 +204,7 @@ AREAS = [
             ("Preciso tirar os quatro sisos de uma vez?", "Depende da indicação de cada dente, do planejamento e da preferência do paciente. Muitas vezes os quatro são removidos na mesma cirurgia, mas isso é definido na avaliação."),
             ("Por que pedir tomografia antes de tirar o siso?", "Quando a radiografia panorâmica mostra o siso próximo ao nervo alveolar inferior ou ao seio maxilar, a tomografia mostra essa relação em três dimensões e permite planejar a técnica com mais segurança."),
             ("O lábio pode ficar dormente depois da cirurgia?", "A alteração de sensibilidade é uma complicação possível quando as raízes estão próximas ao nervo. O risco é avaliado na tomografia e explicado antes da cirurgia, e o planejamento busca reduzi-lo."),
-            ("Posso tirar os sisos com sedação?", "Quando indicado, sim. A sedação é considerada conforme a complexidade da cirurgia, as condições de saúde e o grau de ansiedade do paciente, e a indicação é discutida na avaliação."),
+            ("Posso tirar os sisos com sedação?", "Quando indicado, sim. A sedação é endovenosa, conduzida por médico anestesiologista em ambiente hospitalar. Ela é considerada conforme a complexidade da cirurgia, as condições de saúde e o grau de ansiedade do paciente, e a indicação é discutida na avaliação."),
             ("Quanto tempo dura a recuperação?", "O inchaço costuma ser maior entre o segundo e o terceiro dia e diminui ao longo da primeira semana. A recuperação varia conforme a complexidade da cirurgia."),
         ],
         "relacionadas": ["sedacao-e-ambiente-hospitalar", "patologias-dos-maxilares", "implantes-enxertos"],
@@ -214,10 +214,10 @@ AREAS = [
         "menu": "Implantes e Reabilitação Digital",
         "titulo": "Implantes, Reconstrução Óssea e Reabilitação Digital",
         "seo_titulo": "Implantes e Próteses sobre Implantes em Curitiba | Dr. Daniel Negrelle",
-        "descricao": "Implantes dentários em Curitiba com planejamento digital orientado pela prótese: avaliação tridimensional, enxertos ósseos, cirurgia guiada e próteses sobre implantes em fluxo digital.",
+        "descricao": "Implantes dentários em Curitiba com planejamento virtual, guias de posicionamento impressos e prótese por escaneamento intraoral, sem moldagem, em zircônia e cerâmica (metal free).",
         "resumo": "Do planejamento à prótese: implantes, enxertos ósseos e próteses sobre implantes em fluxo digital.",
         "procedimento": "Implantes dentários e próteses sobre implantes",
-        "intro": "Um implante bem-sucedido começa pela prótese que ele vai sustentar. A posição de cada implante é planejada desde o início considerando a futura reabilitação, e o tratamento pode reunir, de forma integrada, a fase cirúrgica e a fase protética.",
+        "intro": "Um implante bem-sucedido começa pela prótese que ele vai sustentar. A posição de cada implante é planejada desde o início considerando a futura reabilitação, e o Dr. Daniel conduz as duas fases: a cirurgia e a prótese sobre implantes.",
         "secoes": [
             ("Do planejamento à prótese", """
 <p>O fluxo digital permite integrar as informações clínicas, os exames de imagem e o planejamento protético em um mesmo estudo. Com isso, a prótese desejada orienta a posição, a inclinação e o número de implantes, em vez de a prótese ser adaptada depois a implantes já instalados. O resultado é um tratamento mais organizado, com menos improviso entre a cirurgia e a prótese.</p>
@@ -229,7 +229,7 @@ AREAS = [
 <p>Após a perda de um dente, o osso da região tende a diminuir com o tempo. Quando o osso é insuficiente para sustentar o implante na posição correta, a região pode ser reconstruída com enxertos ósseos, antes ou durante a instalação dos implantes. A técnica é escolhida conforme o tamanho e a localização do defeito e é apresentada ao paciente no planejamento.</p>
 """),
             ("Cirurgia guiada", """
-<p>Quando indicado, o planejamento virtual é transferido para a cirurgia por um guia impresso em 3D, que orienta a posição planejada dos implantes. A indicação depende da anatomia, do número de implantes e da complexidade do caso. Veja <a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a>.</p>
+<p>Os implantes são planejados virtualmente, e o planejamento é transferido para a cirurgia por guias de posicionamento impressos em 3D, que orientam a posição definida no computador. O tipo de guia é escolhido conforme a anatomia, o número de implantes e a complexidade do caso. Veja <a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a>.</p>
 """),
             ("Próteses sobre implantes", """
 <p>A reabilitação protética sobre implantes pode incluir:</p>
@@ -239,18 +239,20 @@ AREAS = [
 <li>próteses provisórias, usadas durante a cicatrização e para ajustar estética e função;</li>
 <li>próteses definitivas, confeccionadas a partir do fluxo digital.</li>
 </ul>
-<p>Quando a fase protética é feita no mesmo consultório, cirurgia e prótese seguem o mesmo planejamento, com comunicação direta entre as etapas.</p>
+<p>A prótese é feita a partir de <strong>escaneamento intraoral</strong>, sem a moldagem convencional com massa, e confeccionada em <strong>zircônia e cerâmica</strong>, sem metal (metal free). Como cirurgia e prótese são feitas pelo mesmo profissional, as duas etapas seguem o mesmo planejamento.</p>
 """),
             ("Conforto durante a cirurgia", """
-<p>Cirurgias mais extensas, como reconstruções ósseas e a instalação de vários implantes, podem ser realizadas com sedação ou em ambiente hospitalar quando indicado. Saiba mais em <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>.</p>
+<p>Cirurgias mais extensas, como reconstruções ósseas e a instalação de vários implantes, podem ser realizadas, quando indicado, com sedação endovenosa conduzida por médico anestesiologista em ambiente hospitalar. Saiba mais em <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>.</p>
 """),
         ],
         "faq": [
             ("Todo mundo pode fazer implante?", "A maioria dos adultos pode, mas algumas condições de saúde, medicações e hábitos, como o tabagismo, influenciam a indicação e o planejamento. Isso é avaliado na consulta."),
             ("Por que algumas pessoas precisam de enxerto antes do implante?", "Depois da perda de um dente, o osso da região diminui com o tempo. Quando não há osso suficiente para sustentar o implante na posição correta, ele é reconstruído com enxerto."),
             ("Quanto tempo leva o tratamento com implante?", "Depende da necessidade de enxerto, da cicatrização do osso e do tipo de prótese. Casos sem enxerto são mais curtos; reconstruções ósseas acrescentam meses. O cronograma é apresentado no planejamento."),
-            ("A prótese sobre o implante também é feita no consultório?", "A atuação pode compreender tanto a fase cirúrgica quanto a reabilitação protética sobre implantes, com o planejamento integrado entre as duas etapas. Quando o paciente já tem um dentista responsável pela prótese, o planejamento é feito em conjunto com ele."),
+            ("A prótese sobre o implante também é feita no consultório?", "Sim. O Dr. Daniel faz a cirurgia e a prótese sobre implantes, com o mesmo planejamento integrando as duas etapas."),
             ("O que é fluxo digital na prótese sobre implantes?", "É o uso de escaneamento, planejamento no computador e confecção digital da prótese, integrando os exames de imagem e a posição dos implantes ao desenho da prótese."),
+            ("Preciso fazer moldagem para a prótese?", "Não. A prótese é feita a partir do escaneamento intraoral, que registra os dentes e a posição dos implantes digitalmente, sem a massa de moldagem convencional."),
+            ("De que material é a prótese?", "As próteses são confeccionadas em zircônia e cerâmica, sem metal (metal free). O material de cada caso é definido no planejamento."),
         ],
         "relacionadas": ["tecnologia-e-planejamento", "sedacao-e-ambiente-hospitalar", "sisos-cirurgia-oral"],
     },
@@ -338,7 +340,7 @@ TECNOLOGIA = {
 <p>Na <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, na <a href="/mentoplastia/">mentoplastia</a>, em reconstruções e em <a href="/implantes-enxertos/">implantes</a> de maior complexidade, os movimentos e as posições são planejados virtualmente. O paciente consegue visualizar o plano, e as decisões são tomadas antes de entrar no centro cirúrgico.</p>
 """),
         ("Implantes e fluxo digital protético", """
-<p>Nos <a href="/implantes-enxertos/">implantes</a>, a tomografia e o escaneamento dos dentes são integrados ao desenho da futura prótese. A posição dos implantes é planejada a partir da prótese, e a reabilitação pode seguir em fluxo digital, do planejamento à confecção da prótese sobre implantes.</p>
+<p>Nos <a href="/implantes-enxertos/">implantes</a>, a tomografia e o escaneamento dos dentes são integrados ao desenho da futura prótese. A posição dos implantes é planejada a partir da prótese e transferida para a cirurgia por guias de posicionamento impressos. A prótese é feita a partir de escaneamento intraoral, sem moldagem convencional, em zircônia e cerâmica (metal free).</p>
 """),
         ("Impressão 3D e guias cirúrgicos", """
 <p>A partir do planejamento podem ser impressos em 3D <strong>guias cirúrgicos</strong> e modelos anatômicos. Os guias transferem para a cirurgia a posição planejada no computador; os modelos ajudam a estudar casos de anatomia complexa, como fraturas e reconstruções.</p>
@@ -363,14 +365,14 @@ SEDACAO = {
     "menu": "Sedação e Ambiente Hospitalar",
     "titulo": "Sedação e Ambiente Hospitalar",
     "seo_titulo": "Cirurgia com Sedação e em Ambiente Hospitalar em Curitiba | Dr. Daniel Negrelle",
-    "descricao": "Cirurgia bucomaxilofacial e de sisos em Curitiba com sedação quando indicada e em ambiente hospitalar conforme a complexidade do procedimento e as necessidades de cada paciente.",
-    "resumo": "Quando indicado, procedimentos com sedação ou em ambiente hospitalar, conforme a complexidade e as necessidades de cada paciente.",
+    "descricao": "Cirurgia bucomaxilofacial e de sisos em Curitiba com sedação endovenosa conduzida por médico anestesiologista, em ambiente hospitalar. Consultório dentro do Hospital São Lucas.",
+    "resumo": "Quando indicado, sedação endovenosa com médico anestesiologista, em ambiente hospitalar.",
     "procedimento": "Cirurgia bucomaxilofacial com sedação ou em ambiente hospitalar",
     "cta": "Conhecer as opções de sedação para o procedimento",
-    "intro": "Cirurgia com conforto e segurança. Quando indicado, procedimentos podem ser realizados com sedação e em ambiente hospitalar, de acordo com a complexidade da cirurgia e as necessidades de cada paciente. A integração entre o atendimento em consultório e o hospitalar permite escolher, para cada caso, a estrutura mais adequada.",
+    "intro": "Cirurgia com conforto e segurança. O consultório fica dentro do Hospital São Lucas, em Curitiba. Quando indicado, procedimentos são realizados com sedação endovenosa, conduzida por médico anestesiologista, em ambiente hospitalar, de acordo com a complexidade da cirurgia e as necessidades de cada paciente.",
     "secoes": [
         ("Como é feita a escolha", """
-<p>A decisão entre consultório, sedação ou ambiente hospitalar é individualizada e considera:</p>
+<p>A decisão entre anestesia local no consultório e sedação em ambiente hospitalar é individualizada e considera:</p>
 <ul>
 <li>o procedimento a ser realizado;</li>
 <li>a complexidade da cirurgia;</li>
@@ -382,10 +384,10 @@ SEDACAO = {
 <p>Essa avaliação é feita na consulta, junto com o planejamento da cirurgia.</p>
 """),
         ("Sedação, quando indicada", """
-<p>A sedação reduz a ansiedade e torna o procedimento mais confortável. Ela é considerada principalmente em <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e outras cirurgias orais mais extensas, em procedimentos de maior duração e para pacientes muito ansiosos. A indicação, a forma de sedação e os cuidados antes e depois do procedimento são explicados individualmente.</p>
+<p>A sedação é feita por via <strong>endovenosa</strong> e conduzida por <strong>médico anestesiologista</strong>, que acompanha o paciente durante todo o procedimento, em ambiente hospitalar. Ela reduz a ansiedade e torna o procedimento mais confortável, e é considerada principalmente em <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e outras cirurgias orais mais extensas, em procedimentos de maior duração e para pacientes muito ansiosos. A indicação e os cuidados antes e depois do procedimento são explicados individualmente.</p>
 """),
         ("Ambiente hospitalar", """
-<p>Cirurgias de maior porte, como a <a href="/cirurgia-ortognatica/">cirurgia ortognática</a> e o tratamento das <a href="/trauma-facial-fraturas/">fraturas da face</a>, são realizadas em ambiente hospitalar, com a estrutura e o suporte apropriados. O mesmo pode ser indicado para cirurgias orais extensas e para pacientes cujas condições de saúde exigem monitoramento hospitalar.</p>
+<p>Cirurgias de maior porte, como a <a href="/cirurgia-ortognatica/">cirurgia ortognática</a> e o tratamento das <a href="/trauma-facial-fraturas/">fraturas da face</a>, são realizadas em ambiente hospitalar, com a estrutura e o suporte apropriados. Como o consultório fica dentro do Hospital São Lucas, consulta, cirurgia e revisões acontecem no mesmo lugar. O mesmo pode ser indicado para cirurgias orais extensas e para pacientes cujas condições de saúde exigem monitoramento hospitalar.</p>
 """),
         ("Antes e depois do procedimento", """
 <p>Para procedimentos com sedação ou em hospital, podem ser solicitados exames e uma avaliação pré-operatória. O paciente recebe orientações sobre jejum, medicações e acompanhante, e as consultas de revisão seguem o mesmo acompanhamento das demais cirurgias.</p>
@@ -394,6 +396,7 @@ SEDACAO = {
     "faq": [
         ("Toda cirurgia de siso precisa de sedação?", "Não. Muitas cirurgias de siso são feitas com anestesia local. A sedação é considerada conforme a complexidade da cirurgia, as condições de saúde e o grau de ansiedade de cada paciente."),
         ("Tenho muito medo de dentista. Posso pedir sedação?", "Pode e deve comentar isso na avaliação. A ansiedade é um dos fatores considerados na escolha da forma de anestesia e do local do procedimento."),
+        ("Quem faz a sedação?", "Um médico anestesiologista, que conduz a sedação endovenosa e monitora o paciente durante o procedimento, em ambiente hospitalar."),
         ("Quando a cirurgia precisa ser feita no hospital?", "Cirurgias de maior porte, como a ortognática e o tratamento de fraturas da face, são feitas em ambiente hospitalar. Para outros procedimentos, a indicação depende da complexidade, da duração e das condições de saúde do paciente."),
         ("Preciso de acompanhante?", "Para procedimentos com sedação ou em ambiente hospitalar, sim. As orientações são passadas antes do procedimento."),
     ],

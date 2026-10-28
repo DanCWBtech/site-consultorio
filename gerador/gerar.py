@@ -18,7 +18,7 @@ TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA, SEDACAO]}
 DESTAQUES = ["cirurgia-ortognatica", "dtm-atm-dor-orofacial", "trauma-facial-fraturas"]
 OUTRAS = ["sisos-cirurgia-oral", "implantes-enxertos", "patologias-dos-maxilares", "mentoplastia"]
 
-ENDERECO_TXT = f"{ENDERECO['rua']} · {ENDERECO['bairro']}, {ENDERECO['cidade']} – {ENDERECO['uf']}"
+ENDERECO_TXT = f"{ENDERECO['local']} · {ENDERECO['rua']} · {ENDERECO['bairro']}, {ENDERECO['cidade']} – {ENDERECO['uf']}"
 WA_LINK = f"https://wa.me/{WHATSAPP}"
 
 CONSULTORIO = {
@@ -38,6 +38,7 @@ CONSULTORIO = {
         "addressCountry": ENDERECO["pais"],
     },
     "areaServed": {"@type": "City", "name": "Curitiba"},
+    "containedInPlace": {"@type": "Hospital", "name": HOSPITAL, "address": {"@type": "PostalAddress", "streetAddress": ENDERECO["rua"], "addressLocality": ENDERECO["cidade"], "addressRegion": ENDERECO["uf"], "addressCountry": ENDERECO["pais"]}},
     "medicalSpecialty": "Cirurgia e Traumatologia Bucomaxilofacial",
     "employee": {"@id": f"{SITE}/#daniel"},
 }
@@ -46,7 +47,7 @@ PROFISSIONAL = {
     "@id": f"{SITE}/#daniel",
     "name": NOME,
     "alternateName": NOME_CURTO,
-    "jobTitle": "Cirurgião-dentista · Cirurgia e Traumatologia Bucomaxilofacial",
+    "jobTitle": f"Cirurgião-dentista · {ESPECIALISTA}",
     "url": f"{SITE}/sobre/",
     "worksFor": {"@id": f"{SITE}/#consultorio"},
     "workLocation": {"@id": f"{SITE}/#consultorio"},
@@ -54,7 +55,7 @@ PROFISSIONAL = {
     "knowsAbout": [
         "Cirurgia ortognática", "Disfunção temporomandibular", "Articulação temporomandibular",
         "Dor orofacial", "Trauma facial", "Fraturas de mandíbula", "Terceiros molares",
-        "Implantes dentários", "Próteses sobre implantes", "Fluxo digital em prótese sobre implantes", "Enxertos ósseos", "Sedação em cirurgia oral", "Patologia dos maxilares", "Mentoplastia",
+        "Implantes dentários", "Próteses sobre implantes", "Fluxo digital em prótese sobre implantes", "Enxertos ósseos", "Sedação endovenosa em cirurgia oral", "Cirurgia guiada", "Escaneamento intraoral", "Próteses em zircônia", "Patologia dos maxilares", "Mentoplastia",
         "Planejamento virtual tridimensional",
     ],
 }
@@ -91,7 +92,7 @@ def rodape():
   <div class="wrap rodape">
     <div>
       <strong>{esc(NOME)}</strong><br>
-      {esc(AREA)} · {esc(CRO)}<br>
+      {esc(ESPECIALISTA)} · {esc(CRO)}<br>
       {esc(ENDERECO_TXT)}<br>
       <a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a> · <a href="{WA_LINK}">WhatsApp {esc(WHATSAPP_TXT)}</a>
     </div>
@@ -236,9 +237,9 @@ def gerar_home():
     )
     corpo = f"""<div class="hero">
   <div class="wrap">
-    <p class="sobretitulo">{esc(NOME)} · {esc(CRO)}</p>
+    <p class="sobretitulo">{esc(NOME)} · {esc(ESPECIALISTA)} · {esc(CRO)}</p>
     <h1>Cirurgião bucomaxilofacial em Curitiba</h1>
-    <p>Diagnóstico, planejamento e tratamento de casos complexos da face, dos maxilares e da articulação temporomandibular. Atendimento individualizado, em consultório e em ambiente hospitalar quando necessário.</p>
+    <p>Diagnóstico, planejamento e tratamento de casos complexos da face, dos maxilares e da articulação temporomandibular. Consultório dentro do {esc(HOSPITAL)}, com estrutura hospitalar para as cirurgias que precisam dela.</p>
     <a class="btn btn-light" href="{WA_LINK}">Agendar uma avaliação</a>
     <a class="btn btn-outline" href="tel:{TELEFONE_E164}">Ligar {esc(TELEFONE)}</a>
   </div>
@@ -269,7 +270,7 @@ def gerar_home():
 <section>
   <div class="wrap">
     <h2>Cirurgia com conforto e segurança</h2>
-    <p class="lead">Quando indicado, procedimentos podem ser realizados com sedação e em ambiente hospitalar, de acordo com a complexidade da cirurgia e as necessidades de cada paciente.</p>
+    <p class="lead">O consultório fica dentro do {esc(HOSPITAL)}. Quando indicado, a cirurgia é feita com sedação endovenosa, conduzida por médico anestesiologista em ambiente hospitalar, de acordo com a complexidade do procedimento e as necessidades de cada paciente.</p>
     <a class="btn btn-escuro" href="/sedacao-e-ambiente-hospitalar/">Conhecer as opções de sedação</a>
   </div>
 </section>
@@ -283,7 +284,7 @@ def gerar_home():
     </div>
     <div>
       <h2>Sobre o Dr. Daniel Negrelle</h2>
-      <p>{esc(NOME)} atua em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba, com atendimento em consultório e em ambiente hospitalar e participação no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
+      <p>{esc(NOME)} é especialista em Cirurgia e Traumatologia Bucomaxilofacial, com consultório no {esc(HOSPITAL)}, em Curitiba, e participação no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
       <p><a href="/sobre/">Conheça o profissional</a></p>
     </div>
   </div>
@@ -332,14 +333,14 @@ def gerar_sobre():
   <div class="wrap">
     <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> › Sobre</nav>
     <h1>{esc(NOME)}</h1>
-    <p>Cirurgião-dentista com atuação em {esc(AREA)} em Curitiba, Paraná. {esc(CRO)}.</p>
+    <p>Cirurgião-dentista especialista em {esc(AREA)}, com consultório no {esc(HOSPITAL)}, em Curitiba, Paraná. {esc(CRO)}.</p>
   </div>
 </div>
 <div class="wrap texto">
 <section>
   <h2>Atuação</h2>
-  <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes, enxertos ósseos e próteses sobre implantes em fluxo digital</a>, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
-  <p>A atuação integra o atendimento em consultório e em ambiente hospitalar, onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face. Quando indicado, procedimentos podem ser feitos com <a href="/sedacao-e-ambiente-hospitalar/">sedação</a>.</p>
+  <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes, enxertos ósseos e próteses sobre implantes</a>, da cirurgia guiada à prótese feita por escaneamento intraoral, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
+  <p>O consultório fica dentro do {esc(HOSPITAL)}, o que integra o atendimento ambulatorial à estrutura hospitalar onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face. Quando indicado, procedimentos são feitos com <a href="/sedacao-e-ambiente-hospitalar/">sedação endovenosa conduzida por médico anestesiologista</a>.</p>
 </section>
 <section>
   <h2>Filosofia de trabalho</h2>
@@ -358,7 +359,7 @@ def gerar_sobre():
         migalhas("Sobre", "sobre/"),
     ]
     pagina("sobre/", f"Sobre o {NOME_CURTO} | Cirurgião Bucomaxilofacial em Curitiba",
-           f"Conheça o {NOME}, cirurgião-dentista com atuação em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba. {CRO}.", corpo, dados)
+           f"Conheça o {NOME}, cirurgião-dentista especialista em Cirurgia e Traumatologia Bucomaxilofacial, com consultório no {HOSPITAL}, em Curitiba. {CRO}.", corpo, dados)
 
 
 def gerar_contato():
