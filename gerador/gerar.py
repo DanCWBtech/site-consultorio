@@ -11,10 +11,10 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from dados import *  # noqa: E402,F403
-from paginas import AREAS, TECNOLOGIA  # noqa: E402
+from paginas import AREAS, SEDACAO, TECNOLOGIA  # noqa: E402
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA]}
+TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA, SEDACAO]}
 DESTAQUES = ["cirurgia-ortognatica", "dtm-atm-dor-orofacial", "trauma-facial-fraturas"]
 OUTRAS = ["sisos-cirurgia-oral", "implantes-enxertos", "patologias-dos-maxilares", "mentoplastia"]
 
@@ -54,7 +54,7 @@ PROFISSIONAL = {
     "knowsAbout": [
         "Cirurgia ortognática", "Disfunção temporomandibular", "Articulação temporomandibular",
         "Dor orofacial", "Trauma facial", "Fraturas de mandíbula", "Terceiros molares",
-        "Implantes dentários", "Enxertos ósseos", "Patologia dos maxilares", "Mentoplastia",
+        "Implantes dentários", "Próteses sobre implantes", "Fluxo digital em prótese sobre implantes", "Enxertos ósseos", "Sedação em cirurgia oral", "Patologia dos maxilares", "Mentoplastia",
         "Planejamento virtual tridimensional",
     ],
 }
@@ -80,7 +80,7 @@ def cabecalho():
       <a href="/contato/">Contato</a>
     </nav>
     <details class="nav-mob"><summary aria-label="Abrir menu">Menu</summary>
-      <ul>{areas}<li><a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a></li><li><a href="/sobre/">Sobre o Dr. Daniel</a></li><li><a href="/contato/">Contato</a></li></ul>
+      <ul>{areas}<li><a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a></li><li><a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a></li><li><a href="/sobre/">Sobre o Dr. Daniel</a></li><li><a href="/contato/">Contato</a></li></ul>
     </details>
   </div>
 </header>"""
@@ -96,6 +96,8 @@ def rodape():
       <a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a> · <a href="{WA_LINK}">WhatsApp {esc(WHATSAPP_TXT)}</a>
     </div>
     <div class="rodape-links">
+      <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>
+      <a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a>
       <a href="/sobre/">Sobre</a>
       <a href="/contato/">Contato</a>
       <a href="/privacidade.html">Política de privacidade</a>
@@ -203,7 +205,7 @@ def gerar_area(a):
 {faq_html(a['faq'])}
 {relacionadas_html(a['relacionadas'])}
 </div>
-{cta()}"""
+{cta(a.get('cta', 'Entender se este tratamento é indicado para o seu caso'))}"""
     dados = [
         {
             "@type": "MedicalWebPage",
@@ -236,7 +238,7 @@ def gerar_home():
   <div class="wrap">
     <p class="sobretitulo">{esc(NOME)} · {esc(CRO)}</p>
     <h1>Cirurgião bucomaxilofacial em Curitiba</h1>
-    <p>Diagnóstico, planejamento e tratamento de casos complexos da face, dos maxilares e da articulação temporomandibular, com atendimento individualizado do início ao fim do tratamento.</p>
+    <p>Diagnóstico, planejamento e tratamento de casos complexos da face, dos maxilares e da articulação temporomandibular. Atendimento individualizado, em consultório e em ambiente hospitalar quando necessário.</p>
     <a class="btn btn-light" href="{WA_LINK}">Agendar uma avaliação</a>
     <a class="btn btn-outline" href="tel:{TELEFONE_E164}">Ligar {esc(TELEFONE)}</a>
   </div>
@@ -265,21 +267,29 @@ def gerar_home():
 </section>
 
 <section>
+  <div class="wrap">
+    <h2>Cirurgia com conforto e segurança</h2>
+    <p class="lead">Quando indicado, procedimentos podem ser realizados com sedação e em ambiente hospitalar, de acordo com a complexidade da cirurgia e as necessidades de cada paciente.</p>
+    <a class="btn btn-escuro" href="/sedacao-e-ambiente-hospitalar/">Conhecer as opções de sedação</a>
+  </div>
+</section>
+
+<section class="faixa">
   <div class="wrap duas">
     <div>
       <h2>Tecnologia a serviço do planejamento</h2>
-      <p>Tomografia, modelos digitais, planejamento virtual tridimensional e guias impressos em 3D são incorporados quando aumentam a precisão, a previsibilidade ou a compreensão do tratamento.</p>
+      <p>Tomografia, modelos digitais, planejamento virtual tridimensional, guias impressos em 3D e fluxo digital na prótese sobre implantes são usados quando melhoram uma decisão clínica: mais precisão, previsibilidade ou compreensão do tratamento.</p>
       <p><a href="/tecnologia-e-planejamento/">Como a tecnologia é usada no planejamento</a></p>
     </div>
     <div>
       <h2>Sobre o Dr. Daniel Negrelle</h2>
-      <p>{esc(NOME)} atua em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba, com experiência em ambiente hospitalar e envolvimento no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
+      <p>{esc(NOME)} atua em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba, com atendimento em consultório e em ambiente hospitalar e participação no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
       <p><a href="/sobre/">Conheça o profissional</a></p>
     </div>
   </div>
 </section>
 
-<section class="faixa">
+<section>
   <div class="wrap">
     <h2>Avaliações de pacientes</h2>
     <p class="lead">As avaliações de quem já foi atendido estão publicadas no perfil do consultório no Google.</p>
@@ -287,7 +297,7 @@ def gerar_home():
   </div>
 </section>
 
-<section id="app">
+<section id="app" class="faixa">
   <div class="wrap">
     <h2>App do paciente</h2>
     <p class="lead">Em desenvolvimento: um aplicativo exclusivo para os pacientes do consultório acompanharem o tratamento entre as consultas.</p>
@@ -328,8 +338,8 @@ def gerar_sobre():
 <div class="wrap texto">
 <section>
   <h2>Atuação</h2>
-  <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes e enxertos ósseos</a>, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
-  <p>A atuação inclui o atendimento em consultório e em ambiente hospitalar, onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face.</p>
+  <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes, enxertos ósseos e próteses sobre implantes em fluxo digital</a>, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
+  <p>A atuação integra o atendimento em consultório e em ambiente hospitalar, onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face. Quando indicado, procedimentos podem ser feitos com <a href="/sedacao-e-ambiente-hospitalar/">sedação</a>.</p>
 </section>
 <section>
   <h2>Filosofia de trabalho</h2>
@@ -337,7 +347,7 @@ def gerar_sobre():
 </section>
 <section>
   <h2>Tecnologia e desenvolvimento</h2>
-  <p>O planejamento virtual tridimensional, a análise digital da oclusão e os guias cirúrgicos impressos em 3D fazem parte da rotina de planejamento dos casos em que trazem mais precisão. O Dr. Daniel também participa do desenvolvimento de ferramentas digitais para a odontologia e a cirurgia bucomaxilofacial, como o OcclusaLab, voltado à simulação e à análise da oclusão virtual no planejamento ortodôntico-cirúrgico. <a href="/tecnologia-e-planejamento/">Saiba mais</a>.</p>
+  <p>O planejamento virtual tridimensional, a análise digital da oclusão e os guias cirúrgicos impressos em 3D fazem parte da rotina de planejamento dos casos em que trazem mais precisão. Além de usar a tecnologia existente, o Dr. Daniel participa do desenvolvimento de novas ferramentas a partir de problemas clínicos reais, como o OcclusaLab, que trabalha com modelos digitais para a análise e a simulação da oclusão no planejamento ortodôntico-cirúrgico. <a href="/tecnologia-e-planejamento/">Saiba mais</a>.</p>
 </section>
 </div>
 {cta("Agende uma avaliação")}"""
@@ -388,7 +398,7 @@ def gerar_privacidade():
 
 
 def gerar_mapa_do_site():
-    urls = [""] + [f"{s}/" for s in DESTAQUES + OUTRAS] + ["tecnologia-e-planejamento/", "sobre/", "contato/", "privacidade.html"]
+    urls = [""] + [f"{s}/" for s in DESTAQUES + OUTRAS] + ["sedacao-e-ambiente-hospitalar/", "tecnologia-e-planejamento/", "sobre/", "contato/", "privacidade.html"]
     itens = "".join(f"<url><loc>{SITE}/{u}</loc></url>" for u in urls)
     with open(os.path.join(RAIZ, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{itens}</urlset>\n')
@@ -401,6 +411,7 @@ if __name__ == "__main__":
     for a in AREAS:
         gerar_area(a)
     gerar_area(TECNOLOGIA)
+    gerar_area(SEDACAO)
     gerar_sobre()
     gerar_contato()
     gerar_privacidade()
