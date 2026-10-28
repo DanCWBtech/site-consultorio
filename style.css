@@ -89,3 +89,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .rodape{line-height:1.7}
 .rodape-links{display:flex;flex-direction:column;gap:4px}
 @media (max-width:640px){.cta .btn{width:100%}}
+
+.foto-perfil{float:right;width:240px;height:auto;border-radius:12px;margin:0 0 16px 28px}
+.foto-mini{float:left;width:96px;height:96px;border-radius:50%;object-fit:cover;margin:4px 16px 8px 0}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 24px}
+.fotos img{width:100%;height:auto;border-radius:12px;display:block}
+@media (max-width:640px){.foto-perfil{float:none;display:block;width:200px;margin:0 0 16px}.fotos{grid-template-columns:1fr}}

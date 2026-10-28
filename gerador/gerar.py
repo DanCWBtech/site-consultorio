@@ -27,7 +27,7 @@ CONSULTORIO = {
     "name": f"{NOME_CURTO} · {AREA}",
     "url": f"{SITE}/",
     "logo": f"{SITE}/logo.png",
-    "image": f"{SITE}/logo.png",
+    "image": [f"{SITE}/img/consultorio-sala.webp", f"{SITE}/img/consultorio-recepcao.webp"],
     "telephone": TELEFONE_E164,
     "email": EMAIL,
     "address": {
@@ -52,6 +52,7 @@ PROFISSIONAL = {
     "@id": f"{SITE}/#daniel",
     "name": NOME,
     "alternateName": NOME_CURTO,
+    "image": f"{SITE}/img/dr-daniel-negrelle.webp",
     "jobTitle": f"Cirurgião-dentista · {ESPECIALISTA}",
     "url": f"{SITE}/sobre/",
     "worksFor": {"@id": f"{SITE}/#consultorio"},
@@ -299,6 +300,7 @@ def gerar_home():
     </div>
     <div>
       <h2>Sobre o Dr. Daniel Negrelle</h2>
+      <img class="foto-mini" src="/img/dr-daniel-negrelle.webp" alt="Dr. Daniel Negrelle, cirurgião bucomaxilofacial" width="120" height="120" loading="lazy">
       <p>{esc(NOME)} é especialista em Cirurgia e Traumatologia Bucomaxilofacial, com consultório no {esc(HOSPITAL)}, em Curitiba, e participação no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
       <p><a href="/sobre/">Conheça o profissional</a></p>
     </div>
@@ -358,6 +360,7 @@ def gerar_sobre():
 </div>
 <div class="wrap texto">
 <section>
+  <img class="foto-perfil" src="/img/dr-daniel-negrelle.webp" alt="Dr. Daniel Bonato Negrelle, especialista em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba" width="390" height="390">
   <h2>Atuação</h2>
   <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes, enxertos ósseos e próteses sobre implantes</a>, da cirurgia guiada à prótese feita por escaneamento intraoral, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
   <p>O consultório fica dentro do {esc(HOSPITAL)}, o que integra o atendimento ambulatorial à estrutura hospitalar onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face. Quando indicado, procedimentos são feitos com <a href="/sedacao-e-ambiente-hospitalar/">sedação endovenosa conduzida por médico anestesiologista</a>.</p>
@@ -409,6 +412,12 @@ def gerar_contato():
       <div><dt>Horário</dt><dd>{esc(HORARIO_TXT)}</dd></div>
       <div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{esc(EMAIL)}</a></dd></div>
     </dl>
+  </div>
+  <h2>O consultório</h2>
+  <p>O consultório fica dentro do Hospital São Lucas, em Curitiba.</p>
+  <div class="fotos">
+    <img src="/img/consultorio-recepcao.webp" alt="Recepção do consultório do Dr. Daniel Negrelle no Hospital São Lucas" width="680" height="453" loading="lazy">
+    <img src="/img/consultorio-sala.webp" alt="Sala de atendimento do consultório do Dr. Daniel Negrelle" width="680" height="453" loading="lazy">
   </div>
   <p class="nota">Em caso de trauma recente no rosto com sangramento intenso, dificuldade para respirar ou perda de consciência, procure imediatamente um pronto-socorro.</p>
 </section>
