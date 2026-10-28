@@ -443,7 +443,7 @@ def gerar_redirecionamentos():
         with open(os.path.join(pasta, "index.html"), "w", encoding="utf-8") as f:
             f.write(f'''<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><title>Redirecionando…</title>
-<link rel="canonical" href="{destino}"><meta name="robots" content="noindex">
+<link rel="canonical" href="{destino}">
 <meta http-equiv="refresh" content="0; url={destino}"></head>
 <body><p>Esta página mudou para <a href="{destino}">{destino}</a>.</p></body></html>
 ''')
