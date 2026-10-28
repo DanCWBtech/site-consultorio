@@ -133,7 +133,7 @@ def pagina(caminho, titulo, descricao, corpo, dados=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descricao)}">
-<link rel="canonical" href="{url}">
+{'<meta name="robots" content="noindex">' if caminho == "404.html" else f'<link rel="canonical" href="{url}">'}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="{esc(NOME_CURTO)}">
@@ -427,6 +427,22 @@ def gerar_contato():
            f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Celular e WhatsApp {TELEFONE}.", corpo, dados)
 
 
+def gerar_404():
+    # Página mostrada pelo GitHub Pages para endereços que não existem (inclui links antigos do domínio).
+    corpo = f"""<div class="hero hero-int">
+  <div class="wrap">
+    <h1>Página não encontrada</h1>
+    <p>O endereço que você abriu não existe mais ou foi digitado errado.</p>
+  </div>
+</div>
+<div class="wrap texto">
+<section>
+  <p>Veja as <a href="/#areas">áreas de atuação</a>, conheça o <a href="/sobre/">Dr. Daniel Negrelle</a> ou fale com o consultório pela página de <a href="/contato/">contato</a>.</p>
+</section>
+</div>"""
+    pagina("404.html", f"Página não encontrada | {NOME_CURTO}", "Página não encontrada.", corpo)
+
+
 def gerar_privacidade():
     # Mantém o texto da política (link da App Store) e só troca o cabeçalho e o rodapé.
     origem = os.path.join(os.path.dirname(__file__), "privacidade-texto.html")
@@ -455,5 +471,6 @@ if __name__ == "__main__":
     gerar_sobre()
     gerar_contato()
     gerar_privacidade()
+    gerar_404()
     gerar_mapa_do_site()
     print("Páginas geradas.")
