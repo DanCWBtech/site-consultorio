@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gerador/
+
+Sitemap: https://danielnegrelle.com.br/sitemap.xml

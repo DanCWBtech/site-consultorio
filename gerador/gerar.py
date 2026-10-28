@@ -1,0 +1,408 @@
+#!/usr/bin/env python3
+"""Gera as páginas do site a partir do conteúdo em paginas.py e dados.py.
+
+Uso: python3 gerador/gerar.py   (a partir da raiz do repositório)
+As páginas geradas (index.html e as pastas de cada área) são as que o GitHub Pages publica.
+"""
+import html
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+from dados import *  # noqa: E402,F403
+from paginas import AREAS, TECNOLOGIA  # noqa: E402
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA]}
+DESTAQUES = ["cirurgia-ortognatica", "dtm-atm-dor-orofacial", "trauma-facial-fraturas"]
+OUTRAS = ["sisos-cirurgia-oral", "implantes-enxertos", "patologias-dos-maxilares", "mentoplastia"]
+
+ENDERECO_TXT = f"{ENDERECO['rua']} · {ENDERECO['bairro']}, {ENDERECO['cidade']} – {ENDERECO['uf']}"
+WA_LINK = f"https://wa.me/{WHATSAPP}"
+
+CONSULTORIO = {
+    "@type": "Dentist",
+    "@id": f"{SITE}/#consultorio",
+    "name": f"{NOME_CURTO} · {AREA}",
+    "url": f"{SITE}/",
+    "logo": f"{SITE}/logo.png",
+    "image": f"{SITE}/logo.png",
+    "telephone": TELEFONE_E164,
+    "email": EMAIL,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": ENDERECO["rua"],
+        "addressLocality": ENDERECO["cidade"],
+        "addressRegion": ENDERECO["uf"],
+        "addressCountry": ENDERECO["pais"],
+    },
+    "areaServed": {"@type": "City", "name": "Curitiba"},
+    "medicalSpecialty": "Cirurgia e Traumatologia Bucomaxilofacial",
+    "employee": {"@id": f"{SITE}/#daniel"},
+}
+PROFISSIONAL = {
+    "@type": "Person",
+    "@id": f"{SITE}/#daniel",
+    "name": NOME,
+    "alternateName": NOME_CURTO,
+    "jobTitle": "Cirurgião-dentista · Cirurgia e Traumatologia Bucomaxilofacial",
+    "url": f"{SITE}/sobre/",
+    "worksFor": {"@id": f"{SITE}/#consultorio"},
+    "workLocation": {"@id": f"{SITE}/#consultorio"},
+    "identifier": {"@type": "PropertyValue", "propertyID": "CRO-PR", "value": "16620"},
+    "knowsAbout": [
+        "Cirurgia ortognática", "Disfunção temporomandibular", "Articulação temporomandibular",
+        "Dor orofacial", "Trauma facial", "Fraturas de mandíbula", "Terceiros molares",
+        "Implantes dentários", "Enxertos ósseos", "Patologia dos maxilares", "Mentoplastia",
+        "Planejamento virtual tridimensional",
+    ],
+}
+
+
+def esc(s):
+    return html.escape(s, quote=True)
+
+
+def ld(obj):
+    return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", **obj}, ensure_ascii=False) + "</script>"
+
+
+def cabecalho():
+    areas = "".join(f'<li><a href="/{s}/">{esc(TODAS[s]["menu"])}</a></li>' for s in DESTAQUES + OUTRAS)
+    return f"""<header>
+  <div class="wrap">
+    <a href="/" class="marca"><img src="/logo.png" alt="Dr. Daniel Negrelle – Cirurgia Bucomaxilofacial" width="158" height="40"></a>
+    <nav aria-label="Principal" class="nav-desk">
+      <details class="drop"><summary>Áreas de atuação</summary><ul>{areas}</ul></details>
+      <a href="/tecnologia-e-planejamento/">Tecnologia</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
+    </nav>
+    <details class="nav-mob"><summary aria-label="Abrir menu">Menu</summary>
+      <ul>{areas}<li><a href="/tecnologia-e-planejamento/">Tecnologia e planejamento</a></li><li><a href="/sobre/">Sobre o Dr. Daniel</a></li><li><a href="/contato/">Contato</a></li></ul>
+    </details>
+  </div>
+</header>"""
+
+
+def rodape():
+    return f"""<footer>
+  <div class="wrap rodape">
+    <div>
+      <strong>{esc(NOME)}</strong><br>
+      {esc(AREA)} · {esc(CRO)}<br>
+      {esc(ENDERECO_TXT)}<br>
+      <a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a> · <a href="{WA_LINK}">WhatsApp {esc(WHATSAPP_TXT)}</a>
+    </div>
+    <div class="rodape-links">
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
+      <a href="/privacidade.html">Política de privacidade</a>
+    </div>
+  </div>
+</footer>"""
+
+
+def pagina(caminho, titulo, descricao, corpo, dados=None):
+    url = f"{SITE}/{caminho}"
+    blocos = "\n".join(ld(d) for d in (dados or []))
+    doc = f"""<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(titulo)}</title>
+<meta name="description" content="{esc(descricao)}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="{esc(NOME_CURTO)}">
+<meta property="og:title" content="{esc(titulo)}">
+<meta property="og:description" content="{esc(descricao)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}/logo.png">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+{blocos}
+</head>
+<body>
+{cabecalho()}
+<main>
+{corpo}
+</main>
+{rodape()}
+</body>
+</html>
+"""
+    destino = os.path.join(RAIZ, caminho, "index.html") if caminho.endswith("/") or caminho == "" else os.path.join(RAIZ, caminho)
+    os.makedirs(os.path.dirname(destino), exist_ok=True)
+    with open(destino, "w", encoding="utf-8") as f:
+        f.write(doc)
+
+
+def cta(texto="Entender se este tratamento é indicado para o seu caso"):
+    return f"""<section class="cta">
+  <div class="wrap">
+    <h2>{esc(texto)}</h2>
+    <p>A avaliação reúne exame clínico, exames de imagem e a conversa sobre as alternativas de tratamento.</p>
+    <a class="btn btn-light" href="{WA_LINK}">Agendar uma avaliação</a>
+    <a class="btn btn-outline" href="tel:{TELEFONE_E164}">Falar com a equipe</a>
+  </div>
+</section>"""
+
+
+def migalhas(nome, caminho):
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Início", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": nome, "item": f"{SITE}/{caminho}"},
+        ],
+    }
+
+
+def faq_html(faq):
+    itens = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
+    return f'<section class="faq"><h2>Perguntas frequentes</h2>{itens}</section>'
+
+
+def faq_ld(faq):
+    return {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq
+        ],
+    }
+
+
+def relacionadas_html(slugs):
+    cards = "".join(
+        f'<a class="card link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s].get("resumo", TODAS[s]["descricao"]))}</p></a>'
+        for s in slugs
+    )
+    return f'<section class="relacionadas"><h2>Assuntos relacionados</h2><div class="grid">{cards}</div></section>'
+
+
+def gerar_area(a):
+    caminho = f"{a['slug']}/"
+    secoes = "".join(f"<section><h2>{esc(t)}</h2>{c}</section>" for t, c in a["secoes"])
+    corpo = f"""<div class="hero hero-int">
+  <div class="wrap">
+    <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> › {esc(a['menu'])}</nav>
+    <h1>{esc(a['titulo'])}</h1>
+    <p>{esc(a['intro'])}</p>
+  </div>
+</div>
+<div class="wrap texto">
+{secoes}
+{faq_html(a['faq'])}
+{relacionadas_html(a['relacionadas'])}
+</div>
+{cta()}"""
+    dados = [
+        {
+            "@type": "MedicalWebPage",
+            "@id": f"{SITE}/{caminho}#pagina",
+            "url": f"{SITE}/{caminho}",
+            "name": a["titulo"],
+            "description": a["descricao"],
+            "inLanguage": "pt-BR",
+            "about": {"@type": "MedicalProcedure", "name": a.get("procedimento", a["menu"])} if a is not TECNOLOGIA else {"@type": "Thing", "name": "Planejamento virtual em cirurgia bucomaxilofacial"},
+            "author": {"@id": f"{SITE}/#daniel"},
+            "publisher": {"@id": f"{SITE}/#consultorio"},
+        },
+        faq_ld(a["faq"]),
+        migalhas(a["menu"], caminho),
+        CONSULTORIO,
+        PROFISSIONAL,
+    ]
+    pagina(caminho, a["seo_titulo"], a["descricao"], corpo, dados)
+
+
+def gerar_home():
+    destaques = "".join(
+        f'<a class="card destaque link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s]["resumo"])}</p><span class="mais">Saiba mais</span></a>'
+        for s in DESTAQUES
+    )
+    outras = "".join(
+        f'<a class="card link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s]["resumo"])}</p></a>' for s in OUTRAS
+    )
+    corpo = f"""<div class="hero">
+  <div class="wrap">
+    <p class="sobretitulo">{esc(NOME)} · {esc(CRO)}</p>
+    <h1>Cirurgião bucomaxilofacial em Curitiba</h1>
+    <p>Diagnóstico, planejamento e tratamento de casos complexos da face, dos maxilares e da articulação temporomandibular, com atendimento individualizado do início ao fim do tratamento.</p>
+    <a class="btn btn-light" href="{WA_LINK}">Agendar uma avaliação</a>
+    <a class="btn btn-outline" href="tel:{TELEFONE_E164}">Ligar {esc(TELEFONE)}</a>
+  </div>
+</div>
+
+<section id="areas">
+  <div class="wrap">
+    <h2>Áreas de atuação</h2>
+    <p class="lead">A Cirurgia e Traumatologia Bucomaxilofacial trata as alterações dos ossos da face, dos maxilares, da articulação temporomandibular e das estruturas da boca.</p>
+    <div class="grid grid-3">{destaques}</div>
+    <h3 class="sub">Outras áreas</h3>
+    <div class="grid">{outras}</div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="wrap">
+    <h2>Cada caso começa pelo diagnóstico</h2>
+    <div class="grid etapas">
+      <div><h3>Diagnóstico</h3><p>Exame clínico, história do paciente e exames de imagem definem o problema a ser tratado.</p></div>
+      <div><h3>Planejamento</h3><p>Exames e modelos dentários são integrados para definir a indicação, as alternativas e a estratégia de tratamento.</p></div>
+      <div><h3>Tratamento</h3><p>Em consultório ou em ambiente hospitalar, conforme a complexidade do procedimento.</p></div>
+      <div><h3>Acompanhamento</h3><p>Consultas de revisão e orientações até a recuperação e a estabilização do resultado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap duas">
+    <div>
+      <h2>Tecnologia a serviço do planejamento</h2>
+      <p>Tomografia, modelos digitais, planejamento virtual tridimensional e guias impressos em 3D são incorporados quando aumentam a precisão, a previsibilidade ou a compreensão do tratamento.</p>
+      <p><a href="/tecnologia-e-planejamento/">Como a tecnologia é usada no planejamento</a></p>
+    </div>
+    <div>
+      <h2>Sobre o Dr. Daniel Negrelle</h2>
+      <p>{esc(NOME)} atua em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba, com experiência em ambiente hospitalar e envolvimento no desenvolvimento de ferramentas digitais para o planejamento cirúrgico.</p>
+      <p><a href="/sobre/">Conheça o profissional</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="wrap">
+    <h2>Avaliações de pacientes</h2>
+    <p class="lead">As avaliações de quem já foi atendido estão publicadas no perfil do consultório no Google.</p>
+    <a class="btn btn-escuro" href="{MAPA}">Ver avaliações no Google</a>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap">
+    <h2>App do paciente</h2>
+    <p class="lead">Em desenvolvimento: um aplicativo exclusivo para os pacientes do consultório acompanharem o tratamento entre as consultas.</p>
+    <div class="card">
+      <ul>
+        <li>Alertas para manter os dentes separados ao longo do dia, no tratamento do apertamento</li>
+        <li>Diário da dor, com registro das crises, e diário do sono</li>
+        <li>Orientações de cuidados após as cirurgias</li>
+        <li>Aviso e confirmação de consultas</li>
+      </ul>
+      <p><a href="/privacidade.html">Política de privacidade do app</a></p>
+    </div>
+  </div>
+</section>
+{cta("Agende uma avaliação")}"""
+    dados = [
+        {**CONSULTORIO},
+        PROFISSIONAL,
+        {"@type": "WebSite", "@id": f"{SITE}/#site", "url": f"{SITE}/", "name": NOME_CURTO, "inLanguage": "pt-BR", "publisher": {"@id": f"{SITE}/#consultorio"}},
+    ]
+    pagina(
+        "",
+        "Cirurgião Bucomaxilofacial em Curitiba | Dr. Daniel Negrelle",
+        "Dr. Daniel Bonato Negrelle, Cirurgia e Traumatologia Bucomaxilofacial em Curitiba: cirurgia ortognática, DTM e ATM, trauma facial, sisos, implantes e enxertos. CRO-PR 16620.",
+        corpo,
+        dados,
+    )
+
+
+def gerar_sobre():
+    corpo = f"""<div class="hero hero-int">
+  <div class="wrap">
+    <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> › Sobre</nav>
+    <h1>{esc(NOME)}</h1>
+    <p>Cirurgião-dentista com atuação em {esc(AREA)} em Curitiba, Paraná. {esc(CRO)}.</p>
+  </div>
+</div>
+<div class="wrap texto">
+<section>
+  <h2>Atuação</h2>
+  <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes e enxertos ósseos</a>, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
+  <p>A atuação inclui o atendimento em consultório e em ambiente hospitalar, onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face.</p>
+</section>
+<section>
+  <h2>Filosofia de trabalho</h2>
+  <p>Cada caso começa pelo diagnóstico. Exames clínicos e de imagem são integrados ao planejamento para definir a indicação, as alternativas e a estratégia de tratamento mais adequada. O paciente acompanha esse raciocínio e participa das decisões, com informações claras sobre o que esperar em cada etapa.</p>
+</section>
+<section>
+  <h2>Tecnologia e desenvolvimento</h2>
+  <p>O planejamento virtual tridimensional, a análise digital da oclusão e os guias cirúrgicos impressos em 3D fazem parte da rotina de planejamento dos casos em que trazem mais precisão. O Dr. Daniel também participa do desenvolvimento de ferramentas digitais para a odontologia e a cirurgia bucomaxilofacial, como o OcclusaLab, voltado à simulação e à análise da oclusão virtual no planejamento ortodôntico-cirúrgico. <a href="/tecnologia-e-planejamento/">Saiba mais</a>.</p>
+</section>
+</div>
+{cta("Agende uma avaliação")}"""
+    dados = [
+        {"@type": "ProfilePage", "url": f"{SITE}/sobre/", "name": f"Sobre o {NOME_CURTO}", "mainEntity": {"@id": f"{SITE}/#daniel"}},
+        PROFISSIONAL,
+        CONSULTORIO,
+        migalhas("Sobre", "sobre/"),
+    ]
+    pagina("sobre/", f"Sobre o {NOME_CURTO} | Cirurgião Bucomaxilofacial em Curitiba",
+           f"Conheça o {NOME}, cirurgião-dentista com atuação em Cirurgia e Traumatologia Bucomaxilofacial em Curitiba. {CRO}.", corpo, dados)
+
+
+def gerar_contato():
+    corpo = f"""<div class="hero hero-int">
+  <div class="wrap">
+    <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> › Contato</nav>
+    <h1>Contato e agendamento</h1>
+    <p>Fale com a equipe do consultório para agendar uma avaliação ou tirar dúvidas sobre o atendimento.</p>
+  </div>
+</div>
+<div class="wrap texto">
+<section class="contato">
+  <div class="card">
+    <dl>
+      <div><dt>Endereço</dt><dd><a href="{MAPA}">{esc(ENDERECO_TXT)}</a></dd></div>
+      <div><dt>Telefone</dt><dd><a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a></dd></div>
+      <div><dt>WhatsApp</dt><dd><a href="{WA_LINK}">{esc(WHATSAPP_TXT)}</a></dd></div>
+      <div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{esc(EMAIL)}</a></dd></div>
+    </dl>
+  </div>
+  <p class="nota">Em caso de trauma recente no rosto com sangramento intenso, dificuldade para respirar ou perda de consciência, procure imediatamente um pronto-socorro.</p>
+</section>
+</div>"""
+    dados = [{"@type": "ContactPage", "url": f"{SITE}/contato/", "name": "Contato"}, CONSULTORIO, migalhas("Contato", "contato/")]
+    pagina("contato/", f"Contato | {NOME_CURTO} · Cirurgião Bucomaxilofacial em Curitiba",
+           f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Telefone {TELEFONE} e WhatsApp {WHATSAPP_TXT}.", corpo, dados)
+
+
+def gerar_privacidade():
+    # Mantém o texto da política (link da App Store) e só troca o cabeçalho e o rodapé.
+    origem = os.path.join(os.path.dirname(__file__), "privacidade-texto.html")
+    with open(origem, encoding="utf-8") as f:
+        artigo = f.read()
+    pagina("privacidade.html", "Política de Privacidade · App do Paciente · Dr. Daniel Negrelle",
+           "Como o app do paciente do consultório Dr. Daniel Negrelle trata os seus dados, conforme a LGPD.",
+           f'<div class="wrap">{artigo}</div>')
+
+
+def gerar_mapa_do_site():
+    urls = [""] + [f"{s}/" for s in DESTAQUES + OUTRAS] + ["tecnologia-e-planejamento/", "sobre/", "contato/", "privacidade.html"]
+    itens = "".join(f"<url><loc>{SITE}/{u}</loc></url>" for u in urls)
+    with open(os.path.join(RAIZ, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{itens}</urlset>\n')
+    with open(os.path.join(RAIZ, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write(f"User-agent: *\nAllow: /\nDisallow: /gerador/\n\nSitemap: {SITE}/sitemap.xml\n")
+
+
+if __name__ == "__main__":
+    gerar_home()
+    for a in AREAS:
+        gerar_area(a)
+    gerar_area(TECNOLOGIA)
+    gerar_sobre()
+    gerar_contato()
+    gerar_privacidade()
+    gerar_mapa_do_site()
+    print("Páginas geradas.")
