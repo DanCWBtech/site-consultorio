@@ -60,6 +60,7 @@ AREAS = [
         "faq": [
             ("A cirurgia ortognática é estética ou funcional?", "A indicação é funcional: corrigir a relação entre os maxilares e a mordida. Como os ossos da face sustentam os tecidos moles, a mudança de posição também altera o perfil e a proporção do rosto, e isso faz parte do planejamento."),
             ("Preciso usar aparelho ortodôntico antes da cirurgia?", "Na maioria dos casos, sim. O preparo ortodôntico posiciona os dentes para a nova relação entre os maxilares. Em situações selecionadas, a ordem das etapas pode ser diferente; isso é definido em conjunto com o ortodontista."),
+            ("A cirurgia ortognática dói?", "A cirurgia é feita sob anestesia geral, então o paciente não sente dor durante o procedimento. No pós-operatório, o desconforto e o inchaço são esperados e controlados com medicação e acompanhamento. A intensidade varia de paciente para paciente."),
             ("A cirurgia é feita em hospital?", "Sim. A cirurgia ortognática é realizada em centro cirúrgico hospitalar, sob anestesia geral."),
             ("Ficam cicatrizes no rosto?", "Na técnica convencional, os acessos são feitos por dentro da boca. A necessidade de qualquer acesso externo é discutida na avaliação, conforme o caso."),
             ("Como é a recuperação?", "Inchaço e restrição alimentar são esperados nas primeiras semanas, com dieta líquida e pastosa no início. O tempo de retorno ao trabalho e às atividades varia conforme o caso e é orientado em cada consulta de revisão."),
@@ -239,6 +240,7 @@ AREAS = [
 """),
         ],
         "faq": [
+            ("Todo siso incluso precisa ser extraído?", "Não. Um siso incluso sem sintomas, sem cisto associado e sem risco para os dentes vizinhos pode ser apenas acompanhado com exames periódicos. A remoção é indicada quando há inflamação, cárie, cisto, dano ao dente vizinho ou indicação ortodôntica."),
             ("Preciso tirar os quatro sisos de uma vez?", "Depende da indicação de cada dente, do planejamento e da preferência do paciente. Muitas vezes os quatro são removidos na mesma cirurgia, mas isso é definido na avaliação."),
             ("Por que pedir tomografia antes de tirar o siso?", "Quando a radiografia panorâmica mostra o siso próximo ao nervo alveolar inferior ou ao seio maxilar, a tomografia mostra essa relação em três dimensões e permite planejar a técnica com mais segurança."),
             ("O lábio pode ficar dormente depois da cirurgia?", "A alteração de sensibilidade é uma complicação possível quando as raízes estão próximas ao nervo. O risco é avaliado na tomografia e explicado antes da cirurgia, e o planejamento busca reduzi-lo."),
@@ -252,7 +254,7 @@ AREAS = [
         "slug": "implantes-enxertos",
         "menu": "Implantes e Reabilitação Digital",
         "titulo": "Implantes, Reconstrução Óssea e Reabilitação Digital",
-        "seo_titulo": "Implantes e Próteses sobre Implantes em Curitiba | Dr. Daniel Negrelle",
+        "seo_titulo": "Implantes Dentários em Curitiba | Dr. Daniel Negrelle",
         "descricao": "Implantes dentários em Curitiba com planejamento virtual, guias de posicionamento impressos e prótese por escaneamento intraoral, sem moldagem, em zircônia e cerâmica (metal free).",
         "resumo": "Do planejamento à prótese: implantes, enxertos ósseos e próteses sobre implantes em fluxo digital.",
         "procedimento": "Implantes dentários e próteses sobre implantes",
@@ -300,6 +302,7 @@ AREAS = [
             ("Por que algumas pessoas precisam de enxerto antes do implante?", "Depois da perda de um dente, o osso da região diminui com o tempo. Quando não há osso suficiente para sustentar o implante na posição correta, ele é reconstruído com enxerto."),
             ("Quanto custa um implante dentário?", "O valor depende do número de implantes, da necessidade de enxerto, do tipo e do material da prótese e do planejamento de cada caso. Ele é apresentado depois da avaliação e dos exames."),
             ("Quantos dias de atestado depois do implante?", "Depende do número de implantes, da necessidade de enxerto e do tipo de atividade do paciente. Cirurgias de um implante costumam permitir retorno mais rápido do que reconstruções ósseas. O afastamento é definido pelo cirurgião conforme o procedimento realizado."),
+            ("O implante pode ser colocado no mesmo dia da extração?", "Em casos selecionados, sim: é o implante imediato. Ele depende da quantidade e da qualidade do osso, da ausência de infecção ativa e da estabilidade do implante na hora da cirurgia. Quando essas condições não existem, o implante é instalado depois da cicatrização, com ou sem enxerto."),
             ("Quanto tempo leva o tratamento com implante?", "Depende da necessidade de enxerto, da cicatrização do osso e do tipo de prótese. Casos sem enxerto são mais curtos; reconstruções ósseas acrescentam meses. O cronograma é apresentado no planejamento."),
             ("A prótese sobre o implante também é feita no consultório?", "Sim. O Dr. Daniel faz a cirurgia e a prótese sobre implantes, com o mesmo planejamento integrando as duas etapas."),
             ("O que é fluxo digital na prótese sobre implantes?", "É o uso de escaneamento, planejamento no computador e confecção digital da prótese, integrando os exames de imagem e a posição dos implantes ao desenho da prótese."),
@@ -460,5 +463,9 @@ FAQ_HOME = [
     ("O que é cirurgia bucomaxilofacial?", "A Cirurgia e Traumatologia Bucomaxilofacial é a especialidade da odontologia que diagnostica e trata cirurgicamente doenças, traumas e deformidades da boca, dos maxilares e da face. Inclui, por exemplo, a cirurgia ortognática, o tratamento de fraturas da face, as alterações da articulação temporomandibular (ATM), a remoção de sisos inclusos, os implantes com reconstrução óssea e o tratamento de cistos e tumores dos maxilares."),
     ("O cirurgião bucomaxilofacial é médico ou dentista?", "É um cirurgião-dentista com especialização em Cirurgia e Traumatologia Bucomaxilofacial, registrada no Conselho Regional de Odontologia. A especialidade atua em consultório e em hospital, muitas vezes junto com equipes médicas, como no atendimento de fraturas da face e na cirurgia ortognática."),
     ("Quando procurar um cirurgião bucomaxilofacial?", "Quando há sisos inclusos ou impactados, dor ou estalos na ATM, uma mordida desalinhada por causa da posição dos ossos, fraturas na face, lesões ou cistos nos maxilares, ou falta de osso para implantes. Muitos pacientes chegam encaminhados pelo dentista ou pelo ortodontista, mas também é possível agendar diretamente."),
+    ("Como funciona a avaliação inicial?", "Na primeira consulta são ouvidas as queixas e a história do paciente, e são feitos o exame clínico da face, dos maxilares, da articulação e da boca e a análise dos exames que o paciente já tiver. A partir disso são explicados o diagnóstico provável, os exames que ainda faltam e as alternativas de tratamento."),
+    ("Quais exames podem ser solicitados?", "Depende do caso. Os mais comuns são a radiografia panorâmica, a tomografia computadorizada da face ou dos maxilares, a ressonância magnética da ATM, o escaneamento dos dentes e, antes de cirurgias, exames de sangue e avaliação pré-operatória."),
+    ("Quais casos exigem cirurgia em ambiente hospitalar?", "Cirurgias de maior porte, como a cirurgia ortognática e o tratamento de fraturas da face, e procedimentos com sedação endovenosa. Como o consultório fica dentro do Hospital São Lucas, consulta, cirurgia e revisões acontecem no mesmo lugar."),
+    ("Como agendar uma avaliação?", "Pelo WhatsApp (41) 99986-4486 ou pelo telefone (41) 3022-0654. Os botões de agendamento do site abrem a conversa no WhatsApp."),
     ("Onde fica o consultório?", "Dentro do Hospital São Lucas, na Av. João Gualberto, 1946, no Juvevê, em Curitiba."),
 ]

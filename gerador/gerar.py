@@ -37,7 +37,8 @@ CONSULTORIO = {
         "addressRegion": ENDERECO["uf"],
         "addressCountry": ENDERECO["pais"],
     },
-    "areaServed": {"@type": "City", "name": "Curitiba"},
+    "areaServed": [{"@type": "City", "name": "Curitiba"}, {"@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba"}],
+    "contactPoint": {"@type": "ContactPoint", "contactType": "Agendamento", "telephone": "+" + WHATSAPP, "availableLanguage": "pt-BR"},
     "containedInPlace": {"@type": "Hospital", "name": HOSPITAL, "address": {"@type": "PostalAddress", "streetAddress": ENDERECO["rua"], "addressLocality": ENDERECO["cidade"], "addressRegion": ENDERECO["uf"], "addressCountry": ENDERECO["pais"]}},
     "medicalSpecialty": "Cirurgia e Traumatologia Bucomaxilofacial",
     "employee": {"@id": f"{SITE}/#daniel"},
@@ -327,7 +328,7 @@ def gerar_home():
     pagina(
         "",
         "Cirurgião Bucomaxilofacial em Curitiba | Dr. Daniel Negrelle",
-        "Dr. Daniel Bonato Negrelle, Cirurgia e Traumatologia Bucomaxilofacial em Curitiba: cirurgia ortognática, DTM e ATM, trauma facial, sisos, implantes e enxertos. CRO-PR 16620.",
+        "Especialista em Cirurgia Bucomaxilofacial em Curitiba: ortognática, DTM e ATM, trauma facial, sisos e implantes. Consultório no Hospital São Lucas. CRO-PR 16620.",
         corpo,
         dados,
     )
