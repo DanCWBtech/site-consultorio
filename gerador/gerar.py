@@ -11,7 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from dados import *  # noqa: E402,F403
-from paginas import AREAS, SEDACAO, TECNOLOGIA  # noqa: E402
+from paginas import AREAS, FAQ_HOME, SEDACAO, TECNOLOGIA  # noqa: E402
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA, SEDACAO]}
@@ -313,9 +313,14 @@ def gerar_home():
     </div>
   </div>
 </section>
+
+<section>
+  <div class="wrap texto">{faq_html(FAQ_HOME)}</div>
+</section>
 {cta("Agende uma avaliação")}"""
     dados = [
         {**CONSULTORIO},
+        faq_ld(FAQ_HOME),
         PROFISSIONAL,
         {"@type": "WebSite", "@id": f"{SITE}/#site", "url": f"{SITE}/", "name": NOME_CURTO, "inLanguage": "pt-BR", "publisher": {"@id": f"{SITE}/#consultorio"}},
     ]

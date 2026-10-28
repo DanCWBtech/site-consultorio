@@ -25,6 +25,14 @@ AREAS = [
 </ul>
 <p>Nem toda alteração da mordida exige cirurgia. A avaliação define se o caso é ortodôntico, cirúrgico ou combinado.</p>
 """),
+            ("Classe II e classe III: o que significam", """
+<p>As classes descrevem a relação entre a arcada de cima e a de baixo:</p>
+<ul>
+<li><strong>Classe II:</strong> a mandíbula fica atrás em relação à maxila, ou a maxila fica à frente. O perfil costuma mostrar o queixo retraído, e os dentes de cima ficam bem à frente dos de baixo.</li>
+<li><strong>Classe III:</strong> a mandíbula fica à frente em relação à maxila, ou a maxila fica atrás. O queixo tende a ficar projetado, e os dentes de baixo podem ficar à frente dos de cima (mordida cruzada anterior).</li>
+</ul>
+<p>Quando a diferença está nos dentes, a ortodontia pode corrigi-la. Quando está na posição dos ossos e é grande demais para ser compensada pelos dentes, a correção é feita com a cirurgia ortognática, combinada ao tratamento ortodôntico.</p>
+"""),
             ("Cirurgia de um ou dois maxilares", """
 <p>Conforme o diagnóstico, a cirurgia pode envolver apenas a maxila, apenas a mandíbula ou os dois ossos (cirurgia bimaxilar). A <a href="/mentoplastia/">mentoplastia</a>, que reposiciona o queixo, pode ser associada quando a projeção ou a posição do mento também precisam de correção.</p>
 <p>A escolha não é estética isolada: os movimentos são definidos pela oclusão, pelas vias aéreas, pelo perfil e pela proporção da face, avaliados em conjunto.</p>
@@ -55,6 +63,9 @@ AREAS = [
             ("A cirurgia é feita em hospital?", "Sim. A cirurgia ortognática é realizada em centro cirúrgico hospitalar, sob anestesia geral."),
             ("Ficam cicatrizes no rosto?", "Na técnica convencional, os acessos são feitos por dentro da boca. A necessidade de qualquer acesso externo é discutida na avaliação, conforme o caso."),
             ("Como é a recuperação?", "Inchaço e restrição alimentar são esperados nas primeiras semanas, com dieta líquida e pastosa no início. O tempo de retorno ao trabalho e às atividades varia conforme o caso e é orientado em cada consulta de revisão."),
+            ("O que muda no rosto depois da cirurgia ortognática?", "Como os ossos da face sustentam lábios, bochechas e queixo, reposicionar a maxila e a mandíbula também muda o perfil e a proporção do rosto. No planejamento virtual, os movimentos dos ossos são definidos antes da cirurgia, e as mudanças esperadas são discutidas com o paciente. O resultado também depende da resposta de cada organismo."),
+            ("Quanto custa a cirurgia ortognática?", "O valor depende de quantos ossos são operados (maxila, mandíbula ou ambos), da associação com outros procedimentos, como a mentoplastia, do planejamento virtual e dos custos de hospital e anestesia. Ele é apresentado depois da avaliação e do planejamento de cada caso."),
+            ("Posso fazer a cirurgia ortognática pelo plano de saúde?", "Sim. A cirurgia pode ser realizada pelo plano de saúde do paciente, que cobre a parte hospitalar conforme as regras do contrato. Os honorários do cirurgião são pagos de forma particular. Os detalhes de cada caso são explicados na avaliação."),
             ("Como sei se o meu caso é cirúrgico?", "Pela avaliação clínica, exames de imagem e análise da oclusão. Muitos pacientes chegam encaminhados pelo ortodontista, mas também é possível agendar a avaliação diretamente."),
         ],
         "relacionadas": ["mentoplastia", "tecnologia-e-planejamento", "dtm-atm-dor-orofacial"],
@@ -99,6 +110,20 @@ AREAS = [
 </ul>
 <p>O acompanhamento clínico é feito ao longo do tempo, com reavaliações para ajustar a conduta. Procedimentos articulares ficam reservados para os casos em que a articulação não responde às etapas anteriores.</p>
 """),
+            ("Dor na ATM: o que fazer na crise", """
+<p>Algumas medidas simples ajudam a aliviar a dor enquanto o diagnóstico não é feito:</p>
+<ul>
+<li>preferir alimentos macios por alguns dias e evitar chiclete, alimentos duros e mordidas grandes;</li>
+<li>evitar abrir muito a boca, apoiando o queixo com a mão ao bocejar;</li>
+<li>aplicar compressas mornas sobre os músculos da face, quando a dor é muscular;</li>
+<li>prestar atenção ao apertamento durante o dia: em repouso, os lábios ficam fechados e os dentes separados.</li>
+</ul>
+<p>Analgésicos e anti-inflamatórios podem aliviar uma crise, mas não tratam a causa, e o uso prolongado por conta própria não é recomendado. A medicação, quando necessária, faz parte do tratamento indicado após a avaliação. Se a dor dura mais de alguns dias, volta com frequência ou vem com travamento da boca, procure avaliação.</p>
+"""),
+            ("Causas da dor na ATM", """
+<p>As causas mais comuns são o apertamento e o ranger dos dentes (bruxismo), a sobrecarga dos músculos da mastigação, os deslocamentos do disco articular, as alterações degenerativas da articulação (artrose e artrite) e traumas na face. Sono ruim e estresse aumentam a tensão muscular e costumam piorar o quadro.</p>
+<p>Nem toda dor perto do ouvido vem da ATM. Problemas nos dentes, no ouvido, nos seios da face, nevralgias e alguns tipos de dor de cabeça podem causar dor na mesma região, e a avaliação serve também para diferenciar essas causas.</p>
+"""),
             ("Bruxismo e apertamento", """
 <p>O bruxismo pode acontecer durante o sono ou em vigília, quando a pessoa aperta os dentes ao longo do dia sem perceber. O apertamento em vigília é um fator importante de sobrecarga muscular. O consultório está desenvolvendo um <a href="/#app">aplicativo para os pacientes</a> que lembra de manter os dentes separados ao longo do dia e registra a dor e o sono entre as consultas.</p>
 """),
@@ -111,6 +136,9 @@ AREAS = [
             ("Todo paciente com DTM precisa usar placa?", "Não. A placa é um dos recursos possíveis e é indicada conforme o diagnóstico. Em muitos casos, o tratamento combina orientações, exercícios, fisioterapia e outros recursos."),
             ("O estalo na mandíbula é grave?", "O estalo isolado, sem dor ou limitação, é comum e nem sempre exige tratamento. Estalo acompanhado de dor, travamento ou limitação de abertura deve ser avaliado."),
             ("Quando é preciso fazer ressonância magnética?", "Quando há suspeita de alteração do disco articular, travamentos, limitação de abertura sem causa muscular clara ou antes de procedimentos na articulação."),
+            ("Qual remédio é bom para dor na ATM?", "Analgésicos e anti-inflamatórios podem aliviar a crise, mas não tratam a causa da dor. A medicação, quando indicada, é escolhida após a avaliação e faz parte de um tratamento mais amplo. O uso prolongado por conta própria não é recomendado."),
+            ("A dor na ATM pode ser só de um lado?", "Sim, é comum a dor ser mais forte de um lado, seja o esquerdo ou o direito. Atenção: dor na mandíbula, principalmente do lado esquerdo, que aparece junto com dor ou aperto no peito, falta de ar, suor frio ou mal-estar pode ser sinal de infarto. Nesse caso, procure atendimento de emergência imediatamente ou ligue 192."),
+            ("Qual é o CID da DTM?", "Na CID-10, os transtornos da articulação temporomandibular estão no código K07.6. O código usado em atestados e relatórios é definido pelo profissional conforme o diagnóstico de cada paciente."),
             ("Minha boca travou. O que fazer?", "Procure avaliação o quanto antes. Travamentos recentes costumam ter mais opções de tratamento do que os de longa duração. Se a boca travou aberta e não fecha, procure atendimento de urgência."),
         ],
         "relacionadas": ["cirurgia-ortognatica", "tecnologia-e-planejamento", "trauma-facial-fraturas"],
@@ -180,6 +208,16 @@ AREAS = [
 </ul>
 <p>Sisos que erupcionaram bem posicionados, sem sintomas e com higiene adequada nem sempre precisam ser removidos.</p>
 """),
+            ("Siso ou ciso? Números e posições", """
+<p>A grafia correta é <strong>siso</strong>. O nome técnico é <strong>terceiro molar</strong>, o último dente de cada lado das arcadas. Na numeração usada pelos dentistas, os sisos são:</p>
+<ul>
+<li><strong>18</strong>: superior direito;</li>
+<li><strong>28</strong>: superior esquerdo;</li>
+<li><strong>38</strong>: inferior esquerdo;</li>
+<li><strong>48</strong>: inferior direito.</li>
+</ul>
+<p>Os sisos <strong>inferiores</strong> ficam impactados com mais frequência e podem ter as raízes próximas ao nervo alveolar inferior. Os <strong>superiores</strong> costumam ter remoção mais simples, mas podem estar próximos ao seio maxilar. Um siso <strong>incluso</strong> está coberto por osso ou gengiva; um siso <strong>impactado</strong> está bloqueado por outro dente ou pelo osso e não consegue nascer na posição correta.</p>
+"""),
             ("Casos de maior dificuldade cirúrgica", """
 <ul>
 <li>dentes <strong>inclusos</strong>, totalmente cobertos por osso;</li>
@@ -205,6 +243,7 @@ AREAS = [
             ("Por que pedir tomografia antes de tirar o siso?", "Quando a radiografia panorâmica mostra o siso próximo ao nervo alveolar inferior ou ao seio maxilar, a tomografia mostra essa relação em três dimensões e permite planejar a técnica com mais segurança."),
             ("O lábio pode ficar dormente depois da cirurgia?", "A alteração de sensibilidade é uma complicação possível quando as raízes estão próximas ao nervo. O risco é avaliado na tomografia e explicado antes da cirurgia, e o planejamento busca reduzi-lo."),
             ("Posso tirar os sisos com sedação?", "Quando indicado, sim. A sedação é endovenosa, conduzida por médico anestesiologista em ambiente hospitalar. Ela é considerada conforme a complexidade da cirurgia, as condições de saúde e o grau de ansiedade do paciente, e a indicação é discutida na avaliação."),
+            ("Quantos dias de atestado depois de tirar o siso?", "Depende da complexidade da cirurgia, de quantos dentes são removidos e do tipo de atividade do paciente. O período de afastamento é definido pelo cirurgião, e o atestado é emitido conforme o procedimento realizado."),
             ("Quanto tempo dura a recuperação?", "O inchaço costuma ser maior entre o segundo e o terceiro dia e diminui ao longo da primeira semana. A recuperação varia conforme a complexidade da cirurgia."),
         ],
         "relacionadas": ["sedacao-e-ambiente-hospitalar", "patologias-dos-maxilares", "implantes-enxertos"],
@@ -241,6 +280,17 @@ AREAS = [
 </ul>
 <p>A prótese é feita a partir de <strong>escaneamento intraoral</strong>, sem a moldagem convencional com massa, e confeccionada em <strong>zircônia e cerâmica</strong>, sem metal (metal free). Como cirurgia e prótese são feitas pelo mesmo profissional, as duas etapas seguem o mesmo planejamento.</p>
 """),
+            ("Implante com parafuso ou sem parafuso?", """
+<p>O implante é um pino, geralmente de titânio, com rosca semelhante à de um parafuso, instalado no osso para substituir a raiz do dente. Quando se fala em implante "com parafuso" ou "sem parafuso", em geral a dúvida é sobre como a prótese é presa ao implante:</p>
+<ul>
+<li><strong>prótese parafusada:</strong> fixada ao implante por um pequeno parafuso, o que permite removê-la para manutenção;</li>
+<li><strong>prótese cimentada:</strong> fixada sobre um componente intermediário, sem acesso ao parafuso pela coroa.</li>
+</ul>
+<p>A escolha depende da posição do implante, da estética e da manutenção, e é feita no planejamento.</p>
+"""),
+            ("Implante em dente da frente", """
+<p>Na região da frente, a estética depende não só da coroa, mas também da gengiva e do osso ao redor do implante. Por isso, a posição do implante é planejada com ainda mais cuidado, e pode ser necessário reconstruir osso ou gengiva. Quando indicado, uma prótese provisória mantém a estética durante a cicatrização, até a instalação da prótese definitiva.</p>
+"""),
             ("Conforto durante a cirurgia", """
 <p>Cirurgias mais extensas, como reconstruções ósseas e a instalação de vários implantes, podem ser realizadas, quando indicado, com sedação endovenosa conduzida por médico anestesiologista em ambiente hospitalar. Saiba mais em <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>.</p>
 """),
@@ -248,6 +298,8 @@ AREAS = [
         "faq": [
             ("Todo mundo pode fazer implante?", "A maioria dos adultos pode, mas algumas condições de saúde, medicações e hábitos, como o tabagismo, influenciam a indicação e o planejamento. Isso é avaliado na consulta."),
             ("Por que algumas pessoas precisam de enxerto antes do implante?", "Depois da perda de um dente, o osso da região diminui com o tempo. Quando não há osso suficiente para sustentar o implante na posição correta, ele é reconstruído com enxerto."),
+            ("Quanto custa um implante dentário?", "O valor depende do número de implantes, da necessidade de enxerto, do tipo e do material da prótese e do planejamento de cada caso. Ele é apresentado depois da avaliação e dos exames."),
+            ("Quantos dias de atestado depois do implante?", "Depende do número de implantes, da necessidade de enxerto e do tipo de atividade do paciente. Cirurgias de um implante costumam permitir retorno mais rápido do que reconstruções ósseas. O afastamento é definido pelo cirurgião conforme o procedimento realizado."),
             ("Quanto tempo leva o tratamento com implante?", "Depende da necessidade de enxerto, da cicatrização do osso e do tipo de prótese. Casos sem enxerto são mais curtos; reconstruções ósseas acrescentam meses. O cronograma é apresentado no planejamento."),
             ("A prótese sobre o implante também é feita no consultório?", "Sim. O Dr. Daniel faz a cirurgia e a prótese sobre implantes, com o mesmo planejamento integrando as duas etapas."),
             ("O que é fluxo digital na prótese sobre implantes?", "É o uso de escaneamento, planejamento no computador e confecção digital da prótese, integrando os exames de imagem e a posição dos implantes ao desenho da prótese."),
@@ -402,3 +454,11 @@ SEDACAO = {
     ],
     "relacionadas": ["sisos-cirurgia-oral", "cirurgia-ortognatica", "trauma-facial-fraturas"],
 }
+
+
+FAQ_HOME = [
+    ("O que é cirurgia bucomaxilofacial?", "A Cirurgia e Traumatologia Bucomaxilofacial é a especialidade da odontologia que diagnostica e trata cirurgicamente doenças, traumas e deformidades da boca, dos maxilares e da face. Inclui, por exemplo, a cirurgia ortognática, o tratamento de fraturas da face, as alterações da articulação temporomandibular (ATM), a remoção de sisos inclusos, os implantes com reconstrução óssea e o tratamento de cistos e tumores dos maxilares."),
+    ("O cirurgião bucomaxilofacial é médico ou dentista?", "É um cirurgião-dentista com especialização em Cirurgia e Traumatologia Bucomaxilofacial, registrada no Conselho Regional de Odontologia. A especialidade atua em consultório e em hospital, muitas vezes junto com equipes médicas, como no atendimento de fraturas da face e na cirurgia ortognática."),
+    ("Quando procurar um cirurgião bucomaxilofacial?", "Quando há sisos inclusos ou impactados, dor ou estalos na ATM, uma mordida desalinhada por causa da posição dos ossos, fraturas na face, lesões ou cistos nos maxilares, ou falta de osso para implantes. Muitos pacientes chegam encaminhados pelo dentista ou pelo ortodontista, mas também é possível agendar diretamente."),
+    ("Onde fica o consultório?", "Dentro do Hospital São Lucas, na Av. João Gualberto, 1946, no Juvevê, em Curitiba."),
+]
