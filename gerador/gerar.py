@@ -427,6 +427,28 @@ def gerar_contato():
            f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Celular e WhatsApp {TELEFONE}.", corpo, dados)
 
 
+# Endereços do site antigo (WordPress, 2021) que apontam para as páginas novas.
+REDIRECIONA = {
+    "2021/11/09/implantes-dentais-6/": "implantes-enxertos/",
+}
+
+
+def gerar_redirecionamentos():
+    # O GitHub Pages não faz redirecionamento no servidor; o meta refresh imediato
+    # com canonical é tratado pelo Google como redirecionamento permanente.
+    for antigo, novo in REDIRECIONA.items():
+        destino = f"{SITE}/{novo}"
+        pasta = os.path.join(RAIZ, antigo)
+        os.makedirs(pasta, exist_ok=True)
+        with open(os.path.join(pasta, "index.html"), "w", encoding="utf-8") as f:
+            f.write(f'''<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Redirecionando…</title>
+<link rel="canonical" href="{destino}"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={destino}"></head>
+<body><p>Esta página mudou para <a href="{destino}">{destino}</a>.</p></body></html>
+''')
+
+
 def gerar_404():
     # Página mostrada pelo GitHub Pages para endereços que não existem (inclui links antigos do domínio).
     corpo = f"""<div class="hero hero-int">
@@ -472,5 +494,6 @@ if __name__ == "__main__":
     gerar_contato()
     gerar_privacidade()
     gerar_404()
+    gerar_redirecionamentos()
     gerar_mapa_do_site()
     print("Páginas geradas.")
