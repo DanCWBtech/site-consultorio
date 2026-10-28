@@ -57,7 +57,16 @@ PROFISSIONAL = {
     "worksFor": {"@id": f"{SITE}/#consultorio"},
     "workLocation": {"@id": f"{SITE}/#consultorio"},
     "identifier": {"@type": "PropertyValue", "propertyID": "CRO-PR", "value": "16620"},
-    "sameAs": ["https://hslcuritiba.com.br/member/daniel-bonato-negrelle-2/", "https://www.doctoralia.com.br/perfil/daniel-bonato-negrelle-2"],
+    "sameAs": ["https://br.linkedin.com/in/daniel-negrelle-3a6968131", "https://hslcuritiba.com.br/member/daniel-bonato-negrelle-2/", "https://www.doctoralia.com.br/perfil/daniel-bonato-negrelle-2"],
+    "alumniOf": [
+        {"@type": "CollegeOrUniversity", "name": "Universidade Federal do Paraná"},
+        {"@type": "Hospital", "name": "Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo"},
+    ],
+    "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Graduação em Odontologia", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidade Federal do Paraná"}, "dateCreated": "2004"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "Especialização", "name": "Especialização em Cirurgia e Traumatologia Bucomaxilofacial", "recognizedBy": {"@type": "Hospital", "name": "Hospital das Clínicas da FMUSP"}, "dateCreated": "2007"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Mestrado", "recognizedBy": {"@type": "CollegeOrUniversity", "name": "Universidade Federal do Paraná"}, "dateCreated": "2018"},
+    ],
     "knowsAbout": [
         "Cirurgia ortognática", "Disfunção temporomandibular", "Articulação temporomandibular",
         "Dor orofacial", "Trauma facial", "Fraturas de mandíbula", "Terceiros molares",
@@ -352,6 +361,15 @@ def gerar_sobre():
   <h2>Atuação</h2>
   <p>O Dr. Daniel Negrelle dedica-se ao diagnóstico, ao planejamento e ao tratamento de casos da face, dos maxilares e da articulação temporomandibular, com atenção especial à <a href="/cirurgia-ortognatica/">cirurgia ortognática</a>, à <a href="/dtm-atm-dor-orofacial/">DTM e às alterações da ATM</a> e ao <a href="/trauma-facial-fraturas/">trauma facial</a>. Também realiza <a href="/sisos-cirurgia-oral/">cirurgias de sisos</a> e cirurgia oral, <a href="/implantes-enxertos/">implantes, enxertos ósseos e próteses sobre implantes</a>, da cirurgia guiada à prótese feita por escaneamento intraoral, o tratamento de <a href="/patologias-dos-maxilares/">patologias dos maxilares</a> e a <a href="/mentoplastia/">mentoplastia</a>.</p>
   <p>O consultório fica dentro do {esc(HOSPITAL)}, o que integra o atendimento ambulatorial à estrutura hospitalar onde são realizadas as cirurgias de maior porte e o tratamento das fraturas da face. Quando indicado, procedimentos são feitos com <a href="/sedacao-e-ambiente-hospitalar/">sedação endovenosa conduzida por médico anestesiologista</a>.</p>
+</section>
+<section>
+  <h2>Formação</h2>
+  <ul>
+    <li>Graduação em Odontologia pela Universidade Federal do Paraná (UFPR), 2004.</li>
+    <li>Especialização em Cirurgia e Traumatologia Bucomaxilofacial pelo Hospital das Clínicas da Faculdade de Medicina da USP (HC-FMUSP), 2007.</li>
+    <li>Mestrado pela Universidade Federal do Paraná (UFPR), 2018.</li>
+  </ul>
+  <p>Especialista inscrito no {esc(CRO)}. <a href="https://br.linkedin.com/in/daniel-negrelle-3a6968131">Perfil no LinkedIn</a>.</p>
 </section>
 <section>
   <h2>Filosofia de trabalho</h2>
