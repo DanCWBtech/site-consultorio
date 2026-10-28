@@ -53,6 +53,7 @@ PROFISSIONAL = {
     "worksFor": {"@id": f"{SITE}/#consultorio"},
     "workLocation": {"@id": f"{SITE}/#consultorio"},
     "identifier": {"@type": "PropertyValue", "propertyID": "CRO-PR", "value": "16620"},
+    "sameAs": ["https://hslcuritiba.com.br/member/daniel-bonato-negrelle-2/", "https://www.doctoralia.com.br/perfil/daniel-bonato-negrelle-2"],
     "knowsAbout": [
         "Cirurgia ortognática", "Disfunção temporomandibular", "Articulação temporomandibular",
         "Dor orofacial", "Trauma facial", "Fraturas de mandíbula", "Terceiros molares",
