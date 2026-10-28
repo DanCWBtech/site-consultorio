@@ -110,7 +110,7 @@ def rodape():
       <strong>{esc(NOME)}</strong><br>
       {esc(ESPECIALISTA)} · {esc(CRO)}<br>
       {esc(ENDERECO_TXT)}<br>
-      <a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a> · <a href="{WA_LINK}">WhatsApp {esc(WHATSAPP_TXT)}</a>
+      <a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a> · <a href="{WA_LINK}">WhatsApp</a>
     </div>
     <div class="rodape-links">
       <a href="/sedacao-e-ambiente-hospitalar/">Sedação e ambiente hospitalar</a>
@@ -407,8 +407,8 @@ def gerar_contato():
   <div class="card">
     <dl>
       <div><dt>Endereço</dt><dd><a href="{MAPA}">{esc(ENDERECO_TXT)}</a></dd></div>
-      <div><dt>Telefone</dt><dd><a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a></dd></div>
-      <div><dt>WhatsApp</dt><dd><a href="{WA_LINK}">{esc(WHATSAPP_TXT)}</a></dd></div>
+      <div><dt>Celular e WhatsApp</dt><dd><a href="{WA_LINK}">{esc(TELEFONE)}</a></dd></div>
+      <div><dt>Telefone fixo</dt><dd><a href="tel:{FIXO_E164}">{esc(FIXO)}</a></dd></div>
       <div><dt>Horário</dt><dd>{esc(HORARIO_TXT)}</dd></div>
       <div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{esc(EMAIL)}</a></dd></div>
     </dl>
@@ -424,7 +424,7 @@ def gerar_contato():
 </div>"""
     dados = [{"@type": "ContactPage", "url": f"{SITE}/contato/", "name": "Contato"}, CONSULTORIO, migalhas("Contato", "contato/")]
     pagina("contato/", f"Contato | {NOME_CURTO} · Cirurgião Bucomaxilofacial em Curitiba",
-           f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Telefone {TELEFONE} e WhatsApp {WHATSAPP_TXT}.", corpo, dados)
+           f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Celular e WhatsApp {TELEFONE}.", corpo, dados)
 
 
 def gerar_privacidade():

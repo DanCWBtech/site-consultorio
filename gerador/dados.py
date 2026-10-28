@@ -17,8 +17,11 @@ ENDERECO = {
     "uf": "PR",
     "pais": "BR",
 }
-TELEFONE = "(41) 3022-0654"
-TELEFONE_E164 = "+554130220654"
+# Celular (também WhatsApp) é o número principal; o fixo aparece só na página de contato.
+TELEFONE = "(41) 99986-4486"
+TELEFONE_E164 = "+5541999864486"
+FIXO = "(41) 3022-0654"
+FIXO_E164 = "+554130220654"
 WHATSAPP = "5541999864486"
 WHATSAPP_TXT = "(41) 99986-4486"
 EMAIL = "contato@danielnegrelle.com.br"

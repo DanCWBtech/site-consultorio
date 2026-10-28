@@ -466,6 +466,6 @@ FAQ_HOME = [
     ("Como funciona a avaliação inicial?", "Na primeira consulta são ouvidas as queixas e a história do paciente, e são feitos o exame clínico da face, dos maxilares, da articulação e da boca e a análise dos exames que o paciente já tiver. A partir disso são explicados o diagnóstico provável, os exames que ainda faltam e as alternativas de tratamento."),
     ("Quais exames podem ser solicitados?", "Depende do caso. Os mais comuns são a radiografia panorâmica, a tomografia computadorizada da face ou dos maxilares, a ressonância magnética da ATM, o escaneamento dos dentes e, antes de cirurgias, exames de sangue e avaliação pré-operatória."),
     ("Quais casos exigem cirurgia em ambiente hospitalar?", "Cirurgias de maior porte, como a cirurgia ortognática e o tratamento de fraturas da face, e procedimentos com sedação endovenosa. Como o consultório fica dentro do Hospital São Lucas, consulta, cirurgia e revisões acontecem no mesmo lugar."),
-    ("Como agendar uma avaliação?", "Pelo WhatsApp (41) 99986-4486 ou pelo telefone (41) 3022-0654. Os botões de agendamento do site abrem a conversa no WhatsApp."),
+    ("Como agendar uma avaliação?", "Pelo celular e WhatsApp (41) 99986-4486. Os botões de agendamento do site abrem a conversa no WhatsApp."),
     ("Onde fica o consultório?", "Dentro do Hospital São Lucas, na Av. João Gualberto, 1946, no Alto da Glória, em Curitiba. O atendimento é de segunda a sexta, das 8h às 12h e das 14h às 18h."),
 ]
