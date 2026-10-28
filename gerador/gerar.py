@@ -18,7 +18,7 @@ TODAS = {a["slug"]: a for a in AREAS + [TECNOLOGIA, SEDACAO]}
 DESTAQUES = ["cirurgia-ortognatica", "dtm-atm-dor-orofacial", "trauma-facial-fraturas"]
 OUTRAS = ["sisos-cirurgia-oral", "implantes-enxertos", "patologias-dos-maxilares", "mentoplastia"]
 
-ENDERECO_TXT = f"{ENDERECO['local']} · {ENDERECO['rua']} · {ENDERECO['bairro']}, {ENDERECO['cidade']} – {ENDERECO['uf']}"
+ENDERECO_TXT = f"{ENDERECO['local']} · {ENDERECO['rua']} · {ENDERECO['bairro']}, {ENDERECO['cidade']} – {ENDERECO['uf']}, {ENDERECO['cep']}"
 WA_LINK = f"https://wa.me/{WHATSAPP}"
 
 CONSULTORIO = {
@@ -35,13 +35,17 @@ CONSULTORIO = {
         "streetAddress": ENDERECO["rua"],
         "addressLocality": ENDERECO["cidade"],
         "addressRegion": ENDERECO["uf"],
+        "postalCode": ENDERECO["cep"],
         "addressCountry": ENDERECO["pais"],
     },
+    "openingHoursSpecification": HORARIO_LD,
     "areaServed": [{"@type": "City", "name": "Curitiba"}, {"@type": "AdministrativeArea", "name": "Região Metropolitana de Curitiba"}],
     "contactPoint": {"@type": "ContactPoint", "contactType": "Agendamento", "telephone": "+" + WHATSAPP, "availableLanguage": "pt-BR"},
     "containedInPlace": {"@type": "Hospital", "name": HOSPITAL, "address": {"@type": "PostalAddress", "streetAddress": ENDERECO["rua"], "addressLocality": ENDERECO["cidade"], "addressRegion": ENDERECO["uf"], "addressCountry": ENDERECO["pais"]}},
     "medicalSpecialty": "Cirurgia e Traumatologia Bucomaxilofacial",
     "employee": {"@id": f"{SITE}/#daniel"},
+    "hasMap": MAPA,
+    "sameAs": [MAPA],
 }
 PROFISSIONAL = {
     "@type": "Person",
@@ -384,6 +388,7 @@ def gerar_contato():
       <div><dt>Endereço</dt><dd><a href="{MAPA}">{esc(ENDERECO_TXT)}</a></dd></div>
       <div><dt>Telefone</dt><dd><a href="tel:{TELEFONE_E164}">{esc(TELEFONE)}</a></dd></div>
       <div><dt>WhatsApp</dt><dd><a href="{WA_LINK}">{esc(WHATSAPP_TXT)}</a></dd></div>
+      <div><dt>Horário</dt><dd>{esc(HORARIO_TXT)}</dd></div>
       <div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{esc(EMAIL)}</a></dd></div>
     </dl>
   </div>

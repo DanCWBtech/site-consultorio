@@ -467,5 +467,5 @@ FAQ_HOME = [
     ("Quais exames podem ser solicitados?", "Depende do caso. Os mais comuns são a radiografia panorâmica, a tomografia computadorizada da face ou dos maxilares, a ressonância magnética da ATM, o escaneamento dos dentes e, antes de cirurgias, exames de sangue e avaliação pré-operatória."),
     ("Quais casos exigem cirurgia em ambiente hospitalar?", "Cirurgias de maior porte, como a cirurgia ortognática e o tratamento de fraturas da face, e procedimentos com sedação endovenosa. Como o consultório fica dentro do Hospital São Lucas, consulta, cirurgia e revisões acontecem no mesmo lugar."),
     ("Como agendar uma avaliação?", "Pelo WhatsApp (41) 99986-4486 ou pelo telefone (41) 3022-0654. Os botões de agendamento do site abrem a conversa no WhatsApp."),
-    ("Onde fica o consultório?", "Dentro do Hospital São Lucas, na Av. João Gualberto, 1946, no Juvevê, em Curitiba."),
+    ("Onde fica o consultório?", "Dentro do Hospital São Lucas, na Av. João Gualberto, 1946, no Alto da Glória, em Curitiba. O atendimento é de segunda a sexta, das 8h às 12h e das 14h às 18h."),
 ]
