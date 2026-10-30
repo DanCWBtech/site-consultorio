@@ -343,7 +343,7 @@ def gerar_home():
     ]
     pagina(
         "",
-        "Cirurgião Bucomaxilofacial em Curitiba | Dr. Daniel Negrelle",
+        "Cirurgião Bucomaxilofacial em Curitiba | Dr. Daniel Bonato Negrelle",
         "Especialista em Cirurgia Bucomaxilofacial em Curitiba: ortognática, DTM e ATM, trauma facial, sisos e implantes. Consultório no Hospital São Lucas. CRO-PR 16620.",
         corpo,
         dados,
@@ -390,7 +390,7 @@ def gerar_sobre():
         CONSULTORIO,
         migalhas("Sobre", "sobre/"),
     ]
-    pagina("sobre/", f"Sobre o {NOME_CURTO} | Cirurgião Bucomaxilofacial em Curitiba",
+    pagina("sobre/", f"Sobre o {NOME} | Cirurgião Bucomaxilofacial em Curitiba",
            f"Conheça o {NOME}, cirurgião-dentista especialista em Cirurgia e Traumatologia Bucomaxilofacial, com consultório no {HOSPITAL}, em Curitiba. {CRO}.", corpo, dados)
 
 
@@ -423,7 +423,7 @@ def gerar_contato():
 </section>
 </div>"""
     dados = [{"@type": "ContactPage", "url": f"{SITE}/contato/", "name": "Contato"}, CONSULTORIO, migalhas("Contato", "contato/")]
-    pagina("contato/", f"Contato | {NOME_CURTO} · Cirurgião Bucomaxilofacial em Curitiba",
+    pagina("contato/", f"Contato | {NOME} · Cirurgião Bucomaxilofacial em Curitiba",
            f"Agende uma avaliação com o {NOME_CURTO} em Curitiba: {ENDERECO_TXT}. Celular e WhatsApp {TELEFONE}.", corpo, dados)
 
 
@@ -462,7 +462,7 @@ def gerar_404():
   <p>Veja as <a href="/#areas">áreas de atuação</a>, conheça o <a href="/sobre/">Dr. Daniel Negrelle</a> ou fale com o consultório pela página de <a href="/contato/">contato</a>.</p>
 </section>
 </div>"""
-    pagina("404.html", f"Página não encontrada | {NOME_CURTO}", "Página não encontrada.", corpo)
+    pagina("404.html", f"Página não encontrada | {NOME}", "Página não encontrada.", corpo)
 
 
 def gerar_privacidade():
@@ -470,7 +470,7 @@ def gerar_privacidade():
     origem = os.path.join(os.path.dirname(__file__), "privacidade-texto.html")
     with open(origem, encoding="utf-8") as f:
         artigo = f.read()
-    pagina("privacidade.html", "Política de Privacidade · App do Paciente · Dr. Daniel Negrelle",
+    pagina("privacidade.html", "Política de Privacidade · App do Paciente · Dr. Daniel Bonato Negrelle",
            "Como o app do paciente do consultório Dr. Daniel Negrelle trata os seus dados, conforme a LGPD.",
            f'<div class="wrap">{artigo}</div>')
 
