@@ -95,3 +95,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 24px}
 .fotos img{width:100%;height:auto;border-radius:12px;display:block}
 @media (max-width:640px){.foto-perfil{float:none;display:block;width:200px;margin:0 0 16px}.fotos{grid-template-columns:1fr}}
+
+/* Banner principal com a foto do Hospital São Lucas */
+.hero-foto{position:relative;background:var(--deep) url(/img/hospital-sao-lucas.webp) center 40%/cover no-repeat;padding:96px 0 88px}
+.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,42,51,.92) 0%,rgba(31,42,51,.78) 45%,rgba(31,42,51,.35) 100%)}
+.hero-foto .wrap{position:relative}
+@media (max-width:640px){.hero-foto{padding:64px 0 56px}.hero-foto::before{background:rgba(31,42,51,.8)}}

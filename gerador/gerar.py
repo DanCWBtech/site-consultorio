@@ -251,7 +251,7 @@ def gerar_home():
     outras = "".join(
         f'<a class="card link" href="/{s}/"><h3>{esc(TODAS[s]["menu"])}</h3><p>{esc(TODAS[s]["resumo"])}</p></a>' for s in OUTRAS
     )
-    corpo = f"""<div class="hero">
+    corpo = f"""<div class="hero hero-foto">
   <div class="wrap">
     <p class="sobretitulo">{esc(NOME)} · {esc(ESPECIALISTA)} · {esc(CRO)}</p>
     <h1>Cirurgião bucomaxilofacial em Curitiba</h1>
