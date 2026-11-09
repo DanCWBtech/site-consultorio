@@ -1,7 +1,7 @@
 # Como editar o site
 
 O conteúdo fica em `gerador/paginas.py` (áreas de atuação e tecnologia) e `gerador/dados.py` (endereço, telefones, CRO).
-A home, Sobre e Contato estão em `gerador/gerar.py`. A política de privacidade está em `gerador/privacidade-texto.html`.
+A home, Sobre e Contato estão em `gerador/gerar.py`. A política de privacidade está em `gerador/privacidade-texto.html`; a página de suporte do app (`/suporte/`, informada na App Store) fica em `gerador/gerar.py`.
 
 Depois de editar, rode na raiz do repositório:
 

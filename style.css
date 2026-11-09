@@ -86,6 +86,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .cta h2{color:#fff}
 .cta p{color:#d7dee3;max-width:620px;margin:0 0 22px}
 .contato .card{max-width:520px}
+.contato dl{margin:0}.contato dl div{padding:10px 0;border-bottom:1px solid var(--border)}.contato dl div:last-child{border-bottom:0}.contato dt{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.contato dd{margin:2px 0 0}
 .rodape{line-height:1.7}
 .rodape-links{display:flex;flex-direction:column;gap:4px}
 @media (max-width:640px){.cta .btn{width:100%}}

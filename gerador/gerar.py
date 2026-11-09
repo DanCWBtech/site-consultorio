@@ -118,6 +118,7 @@ def rodape():
       <a href="/sobre/">Sobre</a>
       <a href="/contato/">Contato</a>
       <a href="/privacidade.html">Política de privacidade</a>
+      <a href="/suporte/">Suporte do app</a>
     </div>
   </div>
 </footer>"""
@@ -326,7 +327,7 @@ def gerar_home():
         <li>Orientações de cuidados após as cirurgias</li>
         <li>Aviso e confirmação de consultas</li>
       </ul>
-      <p><a href="/privacidade.html">Política de privacidade do app</a></p>
+      <p><a href="/privacidade.html">Política de privacidade do app</a> · <a href="/suporte/">Suporte do app</a></p>
     </div>
   </div>
 </section>
@@ -475,8 +476,53 @@ def gerar_privacidade():
            f'<div class="wrap">{artigo}</div>')
 
 
+FAQ_SUPORTE = [
+    ("Os alertas não estão tocando. O que faço?",
+     "Confira se as notificações do app estão permitidas nos ajustes do celular e se o modo Foco ou Não perturbe não está silenciando o app. No app, abra a aba Desencoste e veja se os alertas estão ativados e se o período e os dias estão corretos. Abrir o app uma vez por dia mantém a agenda de alertas em dia."),
+    ("Preciso de internet para usar o app?",
+     "Não para os alertas: eles são agendados no próprio celular e tocam mesmo sem internet e com a tela bloqueada."),
+    ("Quem vê os meus registros?",
+     "Os registros ficam guardados no seu celular. Quando o envio ao consultório estiver ativo, só o Dr. Daniel Negrelle e a equipe autorizada do consultório terão acesso, para fins do seu tratamento."),
+    ("Como apago meus dados?",
+     "Ao apagar o app, os dados guardados no celular são apagados. Para excluir o seu cadastro e os dados enviados ao consultório, escreva para contato@danielnegrelle.com.br."),
+    ("Quem pode usar o app?",
+     "O app é exclusivo para pacientes do consultório, que recebem na consulta as orientações de uso de cada recurso."),
+]
+
+
+def gerar_suporte():
+    # Endereço informado na App Store como Support URL.
+    corpo = f"""<div class="hero hero-int">
+  <div class="wrap">
+    <nav class="migalhas" aria-label="Você está em"><a href="/">Início</a> › Suporte do app</nav>
+    <h1>Suporte do app do paciente</h1>
+    <p>Ajuda para usar o aplicativo {esc(NOME_CURTO)}, exclusivo para os pacientes do consultório.</p>
+  </div>
+</div>
+<div class="wrap texto">
+<section class="contato">
+  <h2>Fale com o consultório</h2>
+  <div class="card">
+    <dl>
+      <div><dt>WhatsApp</dt><dd><a href="{WA_LINK}">{esc(WHATSAPP_TXT)}</a></dd></div>
+      <div><dt>E-mail</dt><dd><a href="mailto:{EMAIL}">{esc(EMAIL)}</a></dd></div>
+      <div><dt>Horário</dt><dd>{esc(HORARIO_TXT)}</dd></div>
+    </dl>
+  </div>
+  <p class="nota">Dúvidas sobre o seu tratamento são respondidas pelo consultório. Em caso de urgência, procure atendimento presencial.</p>
+</section>
+{faq_html(FAQ_SUPORTE)}
+<section>
+  <p>Saiba como os seus dados são tratados na <a href="/privacidade.html">política de privacidade do app</a>.</p>
+</section>
+</div>"""
+    dados = [{"@type": "WebPage", "url": f"{SITE}/suporte/", "name": "Suporte do app do paciente"}, faq_ld(FAQ_SUPORTE), migalhas("Suporte do app", "suporte/")]
+    pagina("suporte/", f"Suporte do App do Paciente | {NOME}",
+           f"Ajuda e contato para o app do paciente do {NOME_CURTO}: alertas, dados e exclusão de cadastro.", corpo, dados)
+
+
 def gerar_mapa_do_site():
-    urls = [""] + [f"{s}/" for s in DESTAQUES + OUTRAS] + ["sedacao-e-ambiente-hospitalar/", "tecnologia-e-planejamento/", "sobre/", "contato/", "privacidade.html"]
+    urls = [""] + [f"{s}/" for s in DESTAQUES + OUTRAS] + ["sedacao-e-ambiente-hospitalar/", "tecnologia-e-planejamento/", "sobre/", "contato/", "privacidade.html", "suporte/"]
     itens = "".join(f"<url><loc>{SITE}/{u}</loc></url>" for u in urls)
     with open(os.path.join(RAIZ, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{itens}</urlset>\n')
@@ -493,6 +539,7 @@ if __name__ == "__main__":
     gerar_sobre()
     gerar_contato()
     gerar_privacidade()
+    gerar_suporte()
     gerar_404()
     gerar_redirecionamentos()
     gerar_mapa_do_site()
